@@ -138,14 +138,42 @@ export default function ProductForm({ isOpen, onClose, onSuccess, initialData, c
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Image URL</label>
-            <input
-              type="url"
-              value={formData.image}
-              onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all"
-              placeholder="https://example.com/product.jpg"
-            />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Image</label>
+            <div className="flex gap-2">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={async (e) => {
+                  const file = e.target.files?.[0]
+                  if (file) {
+                    const formData = new FormData()
+                    formData.append('file', file)
+                    try {
+                      setLoading(true)
+                      const res = await fetch('/api/upload', {
+                        method: 'POST',
+                        body: formData
+                      })
+                      const data = await res.json()
+                      if (data.url) {
+                        setFormData(prev => ({ ...prev, image: data.url }))
+                      }
+                    } catch (err) {
+                      setError('Failed to upload image')
+                    } finally {
+                      setLoading(false)
+                    }
+                  }
+                }}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all"
+              />
+              <input
+                type="text"
+                value={formData.image}
+                onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                className="hidden" // Hiding the text input but keeping it for state management if needed or fallback
+              />
+            </div>
           </div>
 
           {formData.image && (
