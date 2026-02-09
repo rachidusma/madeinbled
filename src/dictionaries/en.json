@@ -1,0 +1,76 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "process": "Process",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Bringing the Best of Algeria to the World",
+    "subtitle": "Connecting global markets with the finest sustainable produce from the heart of Algeria's fertile lands.",
+    "cta": "Contact Us"
+  },
+  "about_page": {
+    "title": "About Us",
+    "presentation": {
+      "title": "Company Presentation",
+      "content": "MADE IN BLED TRADING is an Algerian company specializing in the export of agricultural and agri-food products, specifically fruits, vegetables, and dates. Our ambition is to connect Algerian expertise to international markets through responsible, structured, and professional trade."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To promote the excellence of Algerian products internationally and create sustainable bridges between local producers and foreign partners."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To make MADE IN BLED TRADING a trusted reference in international trade, where every exported product reflects the quality, richness, and pride of Algeria."
+    },
+    "values": {
+      "title": "Our Values",
+      "items": [
+        "Quality",
+        "Reliability",
+        "Authenticity",
+        "Innovation"
+      ]
+    }
+  },
+  "products": {
+    "title": "Our Product Categories",
+    "fruits": "Fruits",
+    "vegetables": "Vegetables",
+    "dates": "Dates (Deglet Nour)",
+    "spreads": "Spreads",
+    "chocolates": "Chocolates",
+    "biscuits": "Biscuits",
+    "olive_oil": "Olive Oil"
+  },
+  "why_us": {
+    "title": "Why Choose MADE IN BLED TRADING?",
+    "quality": {
+      "title": "Quality Guarantee",
+      "desc": "International certification standards ensuring premium taste and safety."
+    },
+    "logistics": {
+      "title": "Logistics Expertise",
+      "desc": "Efficient global distribution network with climate-controlled storage."
+    },
+    "price": {
+      "title": "Competitive Pricing",
+      "desc": "Direct sourcing from Algerian producers for best wholesale rates."
+    }
+  },
+  "process": {
+    "title": "Our Export Process",
+    "steps": [
+      { "title": "Inquiry", "desc": "Contact us with your requirements." },
+      { "title": "Quality Check", "desc": "Rigorous testing for consistency." },
+      { "title": "Logistics", "desc": "Seamless coordination via sea or air." },
+      { "title": "Delivery", "desc": "Safe arrival at your destination." }
+    ]
+  },
+  "cta_final": {
+    "title": "Ready to order?",
+    "button": "Contact us today"
+  }
+}

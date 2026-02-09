@@ -1,0 +1,76 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "products": "Produits",
+    "process": "Processus",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Apporter le meilleur de l'Algérie au monde",
+    "subtitle": "Connecter les marchés mondiaux avec les meilleurs produits durables issus des terres fertiles d'Algérie.",
+    "cta": "Contactez-nous"
+  },
+  "about_page": {
+    "title": "À propos de nous",
+    "presentation": {
+      "title": "Présentation de l'entreprise",
+      "content": "MADE IN BLED TRADING est une entreprise algérienne spécialisée dans l’exportation de produits agricoles et agroalimentaires, notamment les fruits, les légumes et les dattes. Notre ambition est de connecter le savoir-faire algérien aux marchés internationaux à travers un commerce responsable, structuré et professionnel."
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "content": "Promouvoir l’excellence des produits algériens à l’international et créer des ponts durables entre les producteurs locaux et les partenaires étrangers."
+    },
+    "vision": {
+      "title": "Notre Vision",
+      "content": "Faire de MADE IN BLED TRADING une référence de confiance dans le commerce international, où chaque produit exporté reflète la qualité, la richesse et la fierté de l’Algérie."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "items": [
+        "Qualité",
+        "Fiabilité",
+        "Authenticité",
+        "Innovation"
+      ]
+    }
+  },
+  "products": {
+    "title": "Nos catégories de produits",
+    "fruits": "Fruits",
+    "vegetables": "Légumes",
+    "dates": "Dattes (Deglet Nour)",
+    "spreads": "Pâtes à tartiner",
+    "chocolates": "Chocolats",
+    "biscuits": "Biscuits",
+    "olive_oil": "Huile d’olive"
+  },
+  "why_us": {
+    "title": "Pourquoi choisir MADE IN BLED TRADING ?",
+    "quality": {
+      "title": "Garantie de Qualité",
+      "desc": "Standards internationaux garantissant un goût premium et la sécurité."
+    },
+    "logistics": {
+      "title": "Expertise Logistique",
+      "desc": "Réseau de distribution mondial efficace avec stockage contrôlé."
+    },
+    "price": {
+      "title": "Prix Compétitifs",
+      "desc": "Approvisionnement direct auprès des producteurs algériens."
+    }
+  },
+  "process": {
+    "title": "Notre Processus d'Exportation",
+    "steps": [
+      { "title": "Demande", "desc": "Contactez-nous avec vos besoins." },
+      { "title": "Contrôle Qualité", "desc": "Tests rigoureux pour la constance." },
+      { "title": "Logistique", "desc": "Coordination fluide par mer ou air." },
+      { "title": "Livraison", "desc": "Arrivée sécurisée à destination." }
+    ]
+  },
+  "cta_final": {
+    "title": "Prêt à commander ?",
+    "button": "Contactez-nous aujourd'hui"
+  }
+}
