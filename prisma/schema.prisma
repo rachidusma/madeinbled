@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url ="postgresql://postgres.opjdnghtpvltwalfpgjs:Ra0794420337@aws-1-eu-west-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
+  directUrl="postgresql://postgres.opjdnghtpvltwalfpgjs:Ra0794420337@aws-1-eu-west-1.pooler.supabase.com:5432/postgres"
+}
+
+model Admin {
+  id       String @id @default(cuid())
+  email    String @unique
+  password String // Hashed
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  description String?
+  image       String?
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  image       String?
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
