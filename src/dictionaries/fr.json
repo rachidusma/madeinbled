@@ -72,5 +72,23 @@
   "cta_final": {
     "title": "Prêt à commander ?",
     "button": "Contactez-nous aujourd'hui"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Contactez-nous pour vos besoins d'exportation",
+    "description": "Vous souhaitez obtenir un devis, poser une question ou établir un partenariat commercial ? Notre équipe est à votre écoute.",
+    "form": {
+      "name": "Nom",
+      "company": "Entreprise",
+      "country": "Pays",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Envoyer le message",
+      "namePlaceholder": "Votre nom complet",
+      "companyPlaceholder": "Nom de votre entreprise",
+      "countryPlaceholder": "Votre pays",
+      "emailPlaceholder": "votre.email@exemple.com",
+      "messagePlaceholder": "Parlez-nous de vos besoins..."
+    }
   }
 }

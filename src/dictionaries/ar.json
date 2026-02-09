@@ -72,5 +72,23 @@
   "cta_final": {
     "title": "هل أنت مستعد للطلب؟",
     "button": "اتصل بنا اليوم"
+  },
+  "contact": {
+    "title": "اتصل بنا",
+    "subtitle": "تواصل معنا لاحتياجاتك من التصدير",
+    "description": "هل ترغب في الحصول على عرض أسعار، أو طرح سؤال، أو إقامة شراكة تجارية؟ فريقنا في خدمتك.",
+    "form": {
+      "name": "الاسم",
+      "company": "الشركة",
+      "country": "البلد",
+      "email": "البريد الإلكتروني",
+      "message": "الرسالة",
+      "submit": "إرسال الرسالة",
+      "namePlaceholder": "اسمك الكامل",
+      "companyPlaceholder": "اسم شركتك",
+      "countryPlaceholder": "بلدك",
+      "emailPlaceholder": "your.email@example.com",
+      "messagePlaceholder": "أخبرنا عن متطلباتك..."
+    }
   }
 }

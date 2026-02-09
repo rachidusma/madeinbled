@@ -72,5 +72,23 @@
   "cta_final": {
     "title": "Ready to order?",
     "button": "Contact us today"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us for your export needs",
+    "description": "Would you like to get a quote, ask a question, or establish a business partnership? Our team is here to listen.",
+    "form": {
+      "name": "Name",
+      "company": "Company",
+      "country": "Country",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "namePlaceholder": "Your full name",
+      "companyPlaceholder": "Your company name",
+      "countryPlaceholder": "Your country",
+      "emailPlaceholder": "your.email@example.com",
+      "messagePlaceholder": "Tell us about your requirements..."
+    }
   }
 }
