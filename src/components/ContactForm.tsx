@@ -1,12 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { sendContactEmail } from '../lib/actions'
+import { useSearchParams } from 'next/navigation'
 
 interface ContactFormProps {
   dictionary: any
 }
 
 export default function ContactForm({ dictionary }: ContactFormProps) {
+  const searchParams = useSearchParams()
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [productInfo, setProductInfo] = useState<{ name: string; url: string } | null>(null)
+
+  useEffect(() => {
+    const product = searchParams.get('product')
+    const url = searchParams.get('url')
+    if (product && url) {
+      setProductInfo({ name: product, url })
+    }
+  }, [searchParams])
+
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -15,10 +29,27 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
     message: ''
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+    setStatus('loading')
+    
+    const result = await sendContactEmail({
+      ...formData,
+      productLink: productInfo ? `${productInfo.name} (${productInfo.url})` : undefined
+    })
+
+    if (result.success) {
+      setStatus('success')
+      setFormData({
+        name: '',
+        company: '',
+        country: '',
+        email: '',
+        message: ''
+      })
+    } else {
+      setStatus('error')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -76,7 +107,46 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
           <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-[#FE6B01] rounded-tl-2xl stitch-corner"></div>
           <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-[#FE6B01] rounded-br-2xl stitch-corner"></div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          {status === 'success' ? (
+            <div className="text-center py-12">
+              <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-[#013765] mb-4">Message Sent!</h3>
+              <p className="text-gray-600 mb-8">Thank you for contacting us. We will get back to you shortly.</p>
+              <button 
+                onClick={() => setStatus('idle')}
+                className="text-[#FE6B01] font-semibold hover:underline"
+              >
+                Send another message
+              </button>
+            </div>
+          ) : (
+            <>
+              {productInfo && (
+                <div className="mb-8 p-4 bg-orange-50 border border-orange-200 rounded-xl flex items-center gap-4">
+                  <div className="w-12 h-12 bg-[#FE6B01] text-white rounded-lg flex items-center justify-center text-2xl">
+                    📦
+                  </div>
+                  <div>
+                    <p className="text-xs text-[#FE6B01] font-bold uppercase tracking-wider">Inquiry for:</p>
+                    <p className="text-[#013765] font-bold">{productInfo.name}</p>
+                  </div>
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 flex items-center gap-3">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Failed to send message. Please try again.
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Field */}
             <div className="form-group">
               <label 
@@ -181,12 +251,21 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
             <div className="text-center pt-4">
               <button 
                 type="submit" 
-                className="bg-gradient-to-r from-[#FE6B01] to-[#ff8534] text-white px-12 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:from-[#ff8534] hover:to-[#FE6B01]"
+                disabled={status === 'loading'}
+                className="w-full sm:w-auto bg-gradient-to-r from-[#FE6B01] to-[#ff8534] text-white px-12 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:from-[#ff8534] hover:to-[#FE6B01] disabled:opacity-70 disabled:transform-none flex items-center justify-center gap-3"
               >
-                {dictionary.contact.form.submit}
+                {status === 'loading' && (
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                )}
+                {status === 'loading' ? 'Sending...' : dictionary.contact.form.submit}
               </button>
             </div>
           </form>
+          </>
+          )}
         </div>
       </div>
 

@@ -6,6 +6,7 @@ import { getProduct } from '../../../../lib/actions'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { headers } from 'next/headers'
 
 export default async function ProductPage({
   params: { lang, id },
@@ -14,6 +15,8 @@ export default async function ProductPage({
 }) {
   const dictionary = await getDictionary(lang)
   const product = await getProduct(id)
+  const headersList = headers()
+  const host = headersList.get('host')
 
   if (!product) {
     notFound()
@@ -78,7 +81,7 @@ export default async function ProductPage({
 
               <div className="mt-auto">
                 <Link
-                  href={`/${lang}/contact`}
+                  href={`/${lang}/contact?product=${encodeURIComponent(product.name)}&url=${encodeURIComponent(`https://${host}/${lang}/products/${id}`)}`}
                   className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white bg-gradient-to-r from-[#FE6B01] to-[#ff8534] hover:from-[#ff8534] hover:to-[#FE6B01] shadow-lg transform hover:-translate-y-1 transition-all duration-300"
                 >
                   {dictionary.product_page.contact_cta}

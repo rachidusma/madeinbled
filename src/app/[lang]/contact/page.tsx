@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { getDictionary } from '../../../get-dictionary'
 import { Locale } from '../../../i18n-config'
 import Navbar from '../../../components/Navbar'
@@ -14,7 +15,9 @@ export default async function Contact({
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <Navbar dictionary={dictionary} lang={lang} />
-      <ContactForm dictionary={dictionary} />
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+        <ContactForm dictionary={dictionary} />
+      </Suspense>
       <Footer dictionary={dictionary} />
     </main>
   )
