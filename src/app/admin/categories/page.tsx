@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import CategoryForm from '@/components/admin/CategoryForm'
+import Image from 'next/image'
 
 interface Category {
   id: string
@@ -19,11 +20,7 @@ export default function CategoriesPage() {
   const [editingCategory, setEditingCategory] = useState<Category | null>(null)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    fetchCategories()
-  }, [])
-
-  const fetchCategories = async () => {
+  const fetchCategories = useCallback(async () => {
     try {
       const res = await fetch('/api/admin/categories')
       if (res.ok) {
@@ -35,7 +32,11 @@ export default function CategoriesPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
+
+  useEffect(() => {
+    fetchCategories()
+  }, [fetchCategories])
 
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this category?')) return
@@ -89,11 +90,12 @@ export default function CategoriesPage() {
           {categories.map((category) => (
             <div key={category.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               {category.image && (
-                <div className="h-48 overflow-hidden">
-                  <img 
+                <div className="h-48 relative overflow-hidden">
+                  <Image 
                     src={category.image} 
                     alt={category.name} 
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               )}

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 interface CategoryFormProps {
   isOpen: boolean
@@ -152,12 +153,12 @@ export default function CategoryForm({ isOpen, onClose, onSuccess, initialData }
           </div>
 
           {formData.image && (
-            <div className="mt-2 h-32 rounded-lg overflow-hidden bg-gray-50 border border-gray-200">
-              <img 
+            <div className="mt-2 h-32 relative rounded-lg overflow-hidden bg-gray-50 border border-gray-200">
+              <Image 
                 src={formData.image} 
                 alt="Preview" 
-                className="w-full h-full object-contain"
-                onError={(e) => (e.currentTarget.style.display = 'none')}
+                fill
+                className="object-contain"
               />
             </div>
           )}

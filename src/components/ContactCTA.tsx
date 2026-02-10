@@ -6,7 +6,7 @@ export default function ContactCTA({ dictionary }: { dictionary: any }) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <blockquote className="mb-12">
           <p className="text-3xl md:text-4xl italic font-light text-gray-300 leading-snug mb-8">
-            "Design is not just what it looks like and feels like. Design is how it works."
+            &quot;Design is not just what it looks like and feels like. Design is how it works.&quot;
           </p>
           <footer className="text-[#3B82F6] font-bold text-xs uppercase tracking-[0.3em]">
             — CURATED PERSPECTIVE

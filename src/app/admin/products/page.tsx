@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import ProductForm from '@/components/admin/ProductForm'
+import Image from 'next/image'
 
 interface Product {
   id: string
@@ -28,16 +29,7 @@ export default function ProductsPage() {
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState<string>('')
 
-  useEffect(() => {
-    fetchProducts()
-    fetchCategories()
-  }, [])
-
-  useEffect(() => {
-    fetchProducts()
-  }, [selectedCategory])
-
-  const fetchCategories = async () => {
+  const fetchCategories = useCallback(async () => {
     try {
       const res = await fetch('/api/admin/categories')
       if (res.ok) {
@@ -47,9 +39,9 @@ export default function ProductsPage() {
     } catch (error) {
       console.error('Error fetching categories:', error)
     }
-  }
+  }, [])
 
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     setLoading(true)
     try {
       const url = selectedCategory 
@@ -66,7 +58,12 @@ export default function ProductsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [selectedCategory])
+
+  useEffect(() => {
+    fetchProducts()
+    fetchCategories()
+  }, [fetchProducts, fetchCategories])
 
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this product?')) return
@@ -147,11 +144,14 @@ export default function ProductsPage() {
                   <tr key={product.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4">
                       {product.image ? (
-                        <img 
-                          src={product.image} 
-                          alt={product.name} 
-                          className="w-12 h-12 rounded-lg object-cover bg-gray-100"
-                        />
+                        <div className="relative w-12 h-12">
+                          <Image 
+                            src={product.image} 
+                            alt={product.name} 
+                            fill
+                            className="rounded-lg object-cover bg-gray-100"
+                          />
+                        </div>
                       ) : (
                         <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400">
                           📦
