@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { requireAuth } from '@/lib/auth'
+import { revalidatePath } from 'next/cache'
 
 export async function GET() {
   try {
@@ -32,6 +33,9 @@ export async function POST(request: Request) {
       data: { name, description, image }
     })
 
+    revalidatePath('/[lang]', 'page')
+    revalidatePath('/[lang]/products', 'page')
+
     return NextResponse.json(category)
   } catch (error) {
     if ((error as Error).message === 'Unauthorized') {
@@ -56,6 +60,9 @@ export async function PUT(request: Request) {
       data: { name, description, image }
     })
 
+    revalidatePath('/[lang]', 'page')
+    revalidatePath('/[lang]/products', 'page')
+
     return NextResponse.json(category)
   } catch (error) {
     if ((error as Error).message === 'Unauthorized') {
@@ -76,6 +83,10 @@ export async function DELETE(request: Request) {
     }
 
     await prisma.category.delete({ where: { id } })
+    
+    revalidatePath('/[lang]', 'page')
+    revalidatePath('/[lang]/products', 'page')
+
     return NextResponse.json({ success: true })
   } catch (error) {
     if ((error as Error).message === 'Unauthorized') {
