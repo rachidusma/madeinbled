@@ -26,7 +26,7 @@ export default function Products({ dictionary, categories }: ProductsProps) {
 
   const scroll = (direction: 'left' | 'right') => {
     if (sliderRef.current) {
-      const scrollAmount = 320 // Width of card + gap
+      const scrollAmount = 216 // Width (192) + Gap (24)
       const newScrollPosition = direction === 'left' 
         ? sliderRef.current.scrollLeft - scrollAmount
         : sliderRef.current.scrollLeft + scrollAmount
@@ -78,26 +78,34 @@ export default function Products({ dictionary, categories }: ProductsProps) {
               <Link 
                 key={category.id} 
                 href={`/products?category=${category.id}`}
-                className="flex-shrink-0 w-72 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300 overflow-hidden group border border-gray-100 snap-center block"
+                className="flex-shrink-0 w-48 group snap-center block"
               >
-                <div className={`w-full h-48 flex items-center justify-center relative ${colors[index % colors.length]} group-hover:scale-105 transition duration-500 overflow-hidden`}>
-                   {category.image ? (
-                    <Image 
-                      src={category.image} 
-                      alt={category.name} 
-                      fill 
-                      className="object-cover"
-                    />
-                  ) : (
-                    <span className="text-7xl">📦</span>
-                  )}
+                <div className="relative mb-6">
+                  {/* Circular Image Container */}
+                  <div className={`w-48 h-48 rounded-full flex items-center justify-center relative ${colors[index % colors.length]} overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-500 border-4 border-white group-hover:border-[#FE6B01]/20`}>
+                    {category.image ? (
+                      <Image 
+                        src={category.image} 
+                        alt={category.name} 
+                        fill 
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    ) : (
+                      <span className="text-5xl group-hover:scale-110 transition-transform duration-500">📦</span>
+                    )}
+                    {/* Overlay for hover */}
+                    <div className="absolute inset-0 bg-[#013765]/0 group-hover:bg-[#013765]/10 transition-colors duration-300" />
+                  </div>
                 </div>
-                <div className="p-6 text-center w-full">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-bled-orange transition">
+                
+                <div className="text-center px-2">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-bled-orange transition-colors duration-300 line-clamp-1">
                     {category.name}
                   </h3>
                   {category.description && (
-                     <p className="text-sm text-gray-500 mt-2 line-clamp-2">{category.description}</p>
+                    <p className="text-xs text-gray-500 mt-1 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {category.description}
+                    </p>
                   )}
                 </div>
               </Link>
@@ -122,19 +130,19 @@ export default function Products({ dictionary, categories }: ProductsProps) {
         </div>
 
         {/* Scroll Indicator Dots */}
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-12">
           {categories.map((category, index) => (
             <button
               key={category.id}
               onClick={() => {
                 if (sliderRef.current) {
                   sliderRef.current.scrollTo({
-                    left: index * 320,
+                    left: index * 216,
                     behavior: 'smooth'
                   })
                 }
               }}
-              className="w-2 h-2 rounded-full bg-gray-300 hover:bg-[#FE6B01] transition-colors"
+              className="w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-[#FE6B01] transition-all hover:scale-125 focus:ring-2 focus:ring-[#FE6B01] focus:ring-offset-2 outline-none"
               aria-label={`Go to ${category.name}`}
             />
           ))}
