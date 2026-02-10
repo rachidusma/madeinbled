@@ -36,17 +36,16 @@ export default async function About({
         </section>
       </div>
 
-      {/* Mission Section - Full Width with Background */}
       <section className="relative w-full min-h-[500px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/mission-bg.png" 
+            src="/images/about-mission-bg.png" 
             alt="Mission Background" 
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FE6B01]/95 via-[#FE6B01]/85 to-[#FE6B01]/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FE6B01]/95 via-[#FE6B01]/90 to-[#FE6B01]/80"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
           <div className="max-w-3xl">
