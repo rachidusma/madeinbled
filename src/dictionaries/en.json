@@ -98,5 +98,8 @@
     "no_products_desc": "Try adjusting your filters or come back later.",
     "contact_cta": "Contact Us About This Product",
     "back_to_products": "Back to Products"
+  },
+  "footer": {
+    "follow_us": "Follow Us"
   }
 }
