@@ -37,6 +37,9 @@
   },
   "products": {
     "title": "Nos catégories de produits",
+    "description": "MADE IN BLED TRADING est une entreprise algérienne spécialisée dans l'exportation de produits agricoles et agroalimentaires, spécifiquement les fruits, légumes et dattes. Notre ambition est de connecter l'expertise algérienne aux marchés internationaux à travers un commerce responsable, structuré et professionnel.",
+    "discover_more": "Découvrir plus",
+    "showing_of": "Affichage de {count} sur {total} collections",
     "fruits": "Fruits",
     "vegetables": "Légumes",
     "dates": "Dattes (Deglet Nour)",

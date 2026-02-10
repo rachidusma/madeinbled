@@ -13,20 +13,9 @@ interface ProductsProps {
 export default function Products({ dictionary, categories }: ProductsProps) {
   const sliderRef = useRef<HTMLDivElement>(null)
 
-  // Fallback colors if we want to cycle through them
-  const colors = [
-    'bg-orange-100 text-orange-600',
-    'bg-green-100 text-green-600',
-    'bg-orange-100 text-bled-orange',
-    'bg-stone-200 text-stone-800',
-    'bg-zinc-100 text-zinc-800',
-    'bg-yellow-50 text-yellow-600',
-    'bg-lime-100 text-lime-700',
-  ]
-
   const scroll = (direction: 'left' | 'right') => {
     if (sliderRef.current) {
-      const scrollAmount = 216 // Width (192) + Gap (24)
+      const scrollAmount = 350 // Updated width for rectangular cards
       const newScrollPosition = direction === 'left' 
         ? sliderRef.current.scrollLeft - scrollAmount
         : sliderRef.current.scrollLeft + scrollAmount
@@ -39,117 +28,88 @@ export default function Products({ dictionary, categories }: ProductsProps) {
   }
 
   return (
-    <section id="products" className="py-20 bg-gray-50">
+    <section id="products" className="py-24 bg-[#0A0D14] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            {dictionary.products.title}
-          </h2>
-          <p className="mt-4 text-xl text-gray-500 max-w-2xl mx-auto">
-            {dictionary.about_page.presentation.content}
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              {dictionary.products.title}
+            </h2>
+            <p className="text-[#94A3B8] text-lg leading-relaxed">
+              {dictionary.products.description}
+            </p>
+          </div>
+          <Link 
+            href="/products" 
+            className="group flex items-center gap-2 text-white font-medium hover:text-[#3B82F6] transition-colors whitespace-nowrap"
+          >
+            {dictionary.products.discover_more}
+            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
 
         {/* Slider Container */}
-        <div className="relative">
-          {/* Left Arrow */}
-          <button
-            onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-[#FE6B01] hover:text-white group"
-            aria-label="Scroll left"
-          >
-            <svg 
-              className="w-6 h-6 text-[#013765] group-hover:text-white transition-colors" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
+        <div className="relative group/slider">
           {/* Slider */}
           <div 
             ref={sliderRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
+            className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory pb-8"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {categories.map((category, index) => (
               <Link 
                 key={category.id} 
                 href={`/products?category=${category.id}`}
-                className="flex-shrink-0 w-48 group snap-center block"
+                className="flex-shrink-0 w-[320px] h-[480px] group snap-start block relative rounded-[2rem] overflow-hidden bg-[#1A1F2B]"
               >
-                <div className="relative mb-6">
-                  {/* Circular Image Container */}
-                  <div className={`w-48 h-48 rounded-full flex items-center justify-center relative ${colors[index % colors.length]} overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-500 border-4 border-white group-hover:border-[#FE6B01]/20`}>
-                    {category.image ? (
-                      <Image 
-                        src={category.image} 
-                        alt={category.name} 
-                        fill 
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                    ) : (
-                      <span className="text-5xl group-hover:scale-110 transition-transform duration-500">📦</span>
-                    )}
-                    {/* Overlay for hover */}
-                    <div className="absolute inset-0 bg-[#013765]/0 group-hover:bg-[#013765]/10 transition-colors duration-300" />
-                  </div>
-                </div>
+                {category.image ? (
+                  <Image 
+                    src={category.image} 
+                    alt={category.name} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-6xl">📦</div>
+                )}
                 
-                <div className="text-center px-2">
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-bled-orange transition-colors duration-300 line-clamp-1">
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D14] via-[#0A0D14]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                
+                {/* Content at Bottom-Left */}
+                <div className="absolute bottom-10 left-8 right-8">
+                  <span className="text-[#3B82F6] text-[10px] font-bold uppercase tracking-widest block mb-3">
+                    {String(index + 1).padStart(2, '0')} / {category.name.split(' ')[0]}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white leading-tight">
                     {category.name}
                   </h3>
-                  {category.description && (
-                    <p className="text-xs text-gray-500 mt-1 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {category.description}
-                    </p>
-                  )}
                 </div>
               </Link>
             ))}
           </div>
-
-          {/* Right Arrow */}
-          <button
-            onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-[#FE6B01] hover:text-white group"
-            aria-label="Scroll right"
-          >
-            <svg 
-              className="w-6 h-6 text-[#013765] group-hover:text-white transition-colors" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
         </div>
 
-        {/* Scroll Indicator Dots */}
-        <div className="flex justify-center gap-2 mt-12">
-          {categories.map((category, index) => (
-            <button
-              key={category.id}
-              onClick={() => {
-                if (sliderRef.current) {
-                  sliderRef.current.scrollTo({
-                    left: index * 216,
-                    behavior: 'smooth'
-                  })
-                }
-              }}
-              className="w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-[#FE6B01] transition-all hover:scale-125 focus:ring-2 focus:ring-[#FE6B01] focus:ring-offset-2 outline-none"
-              aria-label={`Go to ${category.name}`}
-            />
-          ))}
+        {/* Indicators */}
+        <div className="mt-12 flex flex-col items-center gap-4">
+          <div className="flex items-center gap-3">
+            {categories.map((_, index) => (
+              <div 
+                key={index}
+                className={`h-[2px] transition-all duration-300 ${index === 0 ? 'w-10 bg-[#3B82F6]' : 'w-4 bg-gray-700'}`}
+              />
+            ))}
+          </div>
+          <span className="text-[#475569] text-[10px] font-medium uppercase tracking-wider">
+            {dictionary.products.showing_of
+              .replace('{count}', Math.min(categories.length, 3).toString())
+              .replace('{total}', categories.length.toString())}
+          </span>
         </div>
       </div>
 
-      {/* Custom Styles */}
       <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;

@@ -37,6 +37,9 @@
   },
   "products": {
     "title": "Our Product Categories",
+    "description": "MADE IN BLED TRADING is an Algerian company specializing in the export of agricultural and agri-food products, specifically fruits, vegetables, and dates. Our ambition is to connect Algerian expertise to international markets through responsible, structured, and professional trade.",
+    "discover_more": "Discover More",
+    "showing_of": "Showing {count} of {total} collections",
     "fruits": "Fruits",
     "vegetables": "Vegetables",
     "dates": "Dates (Deglet Nour)",

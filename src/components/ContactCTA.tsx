@@ -2,17 +2,31 @@ import Link from 'next/link'
 
 export default function ContactCTA({ dictionary }: { dictionary: any }) {
   return (
-    <section id="contact" className="py-20 bg-bled-blue text-white text-center">
+    <section id="contact" className="py-32 bg-[#0A0D14] border-t border-gray-800/50 text-white text-center">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold sm:text-4xl mb-8">
-          {dictionary.cta_final.title}
-        </h2>
-        <Link 
-          href="/contact" 
-          className="inline-block bg-white text-bled-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition duration-300 shadow-lg"
-        >
-          {dictionary.cta_final.button}
-        </Link>
+        <blockquote className="mb-12">
+          <p className="text-3xl md:text-4xl italic font-light text-gray-300 leading-snug mb-8">
+            "Design is not just what it looks like and feels like. Design is how it works."
+          </p>
+          <footer className="text-[#3B82F6] font-bold text-xs uppercase tracking-[0.3em]">
+            — CURATED PERSPECTIVE
+          </footer>
+        </blockquote>
+        
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link 
+            href="/contact" 
+            className="w-full sm:w-auto bg-[#2563EB] text-white px-10 py-5 rounded-xl font-bold text-sm tracking-wide hover:bg-[#1D4ED8] transition-all duration-300 shadow-xl shadow-blue-900/20 active:scale-95"
+          >
+            Join the Collective
+          </Link>
+          <Link 
+            href="/products" 
+            className="w-full sm:w-auto bg-transparent border border-[#2D3748] text-gray-200 px-10 py-5 rounded-xl font-bold text-sm tracking-wide hover:bg-[#1A1F2B] hover:border-[#4A5568] transition-all duration-300 active:scale-95"
+          >
+            View Lookbook
+          </Link>
+        </div>
       </div>
     </section>
   )
