@@ -29,3 +29,22 @@ body {
 input, textarea, select {
   color: #000000;
 }
+
+@layer utilities {
+  .stitch-corner {
+    border-style: dashed;
+  }
+  
+  .animate-stitch {
+    animation: stitch 3s linear infinite;
+  }
+}
+
+@keyframes stitch {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 32;
+  }
+}

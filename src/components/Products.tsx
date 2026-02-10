@@ -1,18 +1,27 @@
 'use client'
 
 import { useRef } from 'react'
+import { Category } from '@prisma/client'
+import Link from 'next/link'
+import Image from 'next/image'
 
-export default function Products({ dictionary }: { dictionary: any }) {
+interface ProductsProps {
+  dictionary: any
+  categories: Category[]
+}
+
+export default function Products({ dictionary, categories }: ProductsProps) {
   const sliderRef = useRef<HTMLDivElement>(null)
 
-  const products = [
-    { key: 'fruits', color: 'bg-orange-100 text-orange-600', icon: '🍎' },
-    { key: 'vegetables', color: 'bg-green-100 text-green-600', icon: '🥦' },
-    { key: 'dates', color: 'bg-orange-100 text-bled-orange', icon: '🌴' },
-    { key: 'spreads', color: 'bg-stone-200 text-stone-800', icon: '🌰' }, 
-    { key: 'chocolates', color: 'bg-zinc-100 text-zinc-800', icon: '🍫' },
-    { key: 'biscuits', color: 'bg-yellow-50 text-yellow-600', icon: '🍪' },
-    { key: 'olive_oil', color: 'bg-lime-100 text-lime-700', icon: '🫒' },
+  // Fallback colors if we want to cycle through them
+  const colors = [
+    'bg-orange-100 text-orange-600',
+    'bg-green-100 text-green-600',
+    'bg-orange-100 text-bled-orange',
+    'bg-stone-200 text-stone-800',
+    'bg-zinc-100 text-zinc-800',
+    'bg-yellow-50 text-yellow-600',
+    'bg-lime-100 text-lime-700',
   ]
 
   const scroll = (direction: 'left' | 'right') => {
@@ -65,20 +74,33 @@ export default function Products({ dictionary }: { dictionary: any }) {
             className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {products.map((product) => (
-              <div 
-                key={product.key} 
-                className="flex-shrink-0 w-72 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300 overflow-hidden group border border-gray-100 snap-center"
+            {categories.map((category, index) => (
+              <Link 
+                key={category.id} 
+                href={`/products?category=${category.id}`}
+                className="flex-shrink-0 w-72 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300 overflow-hidden group border border-gray-100 snap-center block"
               >
-                <div className={`w-full h-48 flex items-center justify-center text-7xl ${product.color} group-hover:scale-105 transition duration-500`}>
-                  {product.icon}
+                <div className={`w-full h-48 flex items-center justify-center relative ${colors[index % colors.length]} group-hover:scale-105 transition duration-500 overflow-hidden`}>
+                   {category.image ? (
+                    <Image 
+                      src={category.image} 
+                      alt={category.name} 
+                      fill 
+                      className="object-cover"
+                    />
+                  ) : (
+                    <span className="text-7xl">📦</span>
+                  )}
                 </div>
                 <div className="p-6 text-center w-full">
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-bled-orange transition">
-                    {dictionary.products[product.key]}
+                    {category.name}
                   </h3>
+                  {category.description && (
+                     <p className="text-sm text-gray-500 mt-2 line-clamp-2">{category.description}</p>
+                  )}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -101,9 +123,9 @@ export default function Products({ dictionary }: { dictionary: any }) {
 
         {/* Scroll Indicator Dots */}
         <div className="flex justify-center gap-2 mt-8">
-          {products.map((product, index) => (
+          {categories.map((category, index) => (
             <button
-              key={product.key}
+              key={category.id}
               onClick={() => {
                 if (sliderRef.current) {
                   sliderRef.current.scrollTo({
@@ -113,7 +135,7 @@ export default function Products({ dictionary }: { dictionary: any }) {
                 }
               }}
               className="w-2 h-2 rounded-full bg-gray-300 hover:bg-[#FE6B01] transition-colors"
-              aria-label={`Go to ${dictionary.products[product.key]}`}
+              aria-label={`Go to ${category.name}`}
             />
           ))}
         </div>
