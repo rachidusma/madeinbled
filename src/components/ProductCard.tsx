@@ -6,9 +6,10 @@ import { Product, Category } from '@prisma/client'
 
 interface ProductCardProps {
   product: Product & { category: Category }
+  dictionary: any
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, dictionary }: ProductCardProps) {
   return (
     <Link 
       href={`/products/${product.id}`}
@@ -46,7 +47,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.description}
         </p>
         <div className="mt-4 flex items-center text-[#FE6B01] font-semibold text-sm group-hover:translate-x-1 transition-transform">
-          View Details
+          {dictionary.product_page.view_details}
           <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

@@ -90,5 +90,13 @@
       "emailPlaceholder": "your.email@example.com",
       "messagePlaceholder": "أخبرنا عن متطلباتك..."
     }
+  },
+  "product_page": {
+    "all_products": "جميع المنتجات",
+    "view_details": "عرض التفاصيل",
+    "no_products": "لم يتم العثور على منتجات",
+    "no_products_desc": "حاول ضبط الفلاتر أو عد لاحقًا.",
+    "contact_cta": "اتصل بنا بخصوص هذا المنتج",
+    "back_to_products": "العودة إلى المنتجات"
   }
 }

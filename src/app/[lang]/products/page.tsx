@@ -39,13 +39,13 @@ export default async function Products({
           </p>
         </div>
 
-        <ProductFilter categories={categories} />
+        <ProductFilter categories={categories} dictionary={dictionary} />
 
         {productsData.products.length > 0 ? (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {productsData.products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} dictionary={dictionary} />
               ))}
             </div>
 
@@ -57,8 +57,12 @@ export default async function Products({
         ) : (
           <div className="text-center py-20">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">No products found</h3>
-            <p className="text-gray-500">Try adjusting your filters or come back later.</p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              {dictionary.product_page.no_products}
+            </h3>
+            <p className="text-gray-500">
+              {dictionary.product_page.no_products_desc}
+            </p>
           </div>
         )}
       </div>

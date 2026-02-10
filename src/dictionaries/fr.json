@@ -90,5 +90,13 @@
       "emailPlaceholder": "votre.email@exemple.com",
       "messagePlaceholder": "Parlez-nous de vos besoins..."
     }
+  },
+  "product_page": {
+    "all_products": "Tous les produits",
+    "view_details": "Voir les détails",
+    "no_products": "Aucun produit trouvé",
+    "no_products_desc": "Essayez d'ajuster vos filtres ou revenez plus tard.",
+    "contact_cta": "Contactez-nous à propos de ce produit",
+    "back_to_products": "Retour aux produits"
   }
 }

@@ -5,9 +5,10 @@ import { useRouter, useSearchParams } from 'next/navigation'
 
 interface ProductFilterProps {
   categories: Category[]
+  dictionary: any
 }
 
-export default function ProductFilter({ categories }: ProductFilterProps) {
+export default function ProductFilter({ categories, dictionary }: ProductFilterProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const currentCategory = searchParams.get('category')
@@ -34,7 +35,7 @@ export default function ProductFilter({ categories }: ProductFilterProps) {
             : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
         }`}
       >
-        All Products
+        {dictionary.product_page.all_products}
       </button>
       {categories.map((category) => (
         <button
