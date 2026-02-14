@@ -139,21 +139,57 @@
     "button": "Request Pricing Now"
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "Get in touch with us for your export needs",
-    "description": "Would you like to get a quote, ask a question, or establish a business partnership? Our team is here to listen.",
+    "title": "Get in Touch",
+    "subtitle": "Global Trade Partnerships",
+    "description": "Your bridge to premium agricultural exports. We specialize in connecting high-quality produce with global markets through seamless trade partnerships and optimized logistics.",
     "form": {
-      "name": "Name",
+      "title": "Send an Inquiry",
+      "subtitle": "Fill out the form below and our trade specialists will reach out within 24 hours.",
+      "name": "Full Name",
       "company": "Company",
       "country": "Country",
-      "email": "Email",
+      "email": "Email Address",
       "message": "Message",
-      "submit": "Send Message",
-      "namePlaceholder": "Your full name",
-      "companyPlaceholder": "Your company name",
-      "countryPlaceholder": "Your country",
-      "emailPlaceholder": "your.email@example.com",
+      "submit": "Submit Inquiry",
+      "namePlaceholder": "John Doe",
+      "companyPlaceholder": "Your Organization",
+      "countryPlaceholder": "Select Country",
+      "emailPlaceholder": "email@example.com",
       "messagePlaceholder": "Tell us about your requirements..."
+    },
+    "info": {
+      "title": "Contact Details",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "website": "Official Website",
+      "hours_title": "Business Hours",
+      "hours_week": "Monday - Friday",
+      "hours_week_value": "08:00 AM - 06:00 PM",
+      "hours_sat": "Saturday",
+      "hours_sat_value": "By Appointment",
+      "hours_sun": "Sunday",
+      "hours_sun_value": "Closed"
+    },
+    "global_network": {
+      "title": "Our Global Network",
+      "description": "Strategically positioned hubs to facilitate rapid agricultural export and logistics across continents.",
+      "offices": [
+        {
+          "city": "Algiers, DZ",
+          "tag": "Headquarters",
+          "desc": "Our primary sourcing center and operational hub for premium agricultural products in North Africa."
+        },
+        {
+          "city": "Doha, QA",
+          "tag": "Strategic Partner",
+          "desc": "A key node in our expanding network, facilitating direct trade relationships within the Qatar market."
+        },
+        {
+          "city": "Dubai, UAE",
+          "tag": "Trade Gateway",
+          "desc": "Strategically positioned for Middle Eastern trade, ensuring efficient delivery to Gulf nations."
+        }
+      ]
     }
   },
   "product_page": {
@@ -162,7 +198,15 @@
     "no_products": "No products found",
     "no_products_desc": "Try adjusting your filters or come back later.",
     "contact_cta": "Contact Us About This Product",
-    "back_to_products": "Back to Products"
+    "back_to_products": "Back to Products",
+    "origin": "Origin",
+    "certifications": {
+      "title": "Certifications",
+      "organic": "Organic",
+      "iso": "ISO 22000",
+      "haccp": "HACCP",
+      "fda": "FDA Approved"
+    }
   },
   "footer": {
     "follow_us": "Follow Us"

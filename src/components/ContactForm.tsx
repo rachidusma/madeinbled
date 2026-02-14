@@ -68,211 +68,313 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
 
   return (
     <>
-      {/* Hero Section with Stitch Loop Animation */}
-      <div className="relative pt-32 pb-20 overflow-hidden">
-        {/* Animated Stitch Loop Background */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="stitchPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path 
-                  d="M0 20 Q10 15, 20 20 T40 20" 
-                  stroke="#FE6B01" 
-                  strokeWidth="2" 
-                  fill="none"
-                  strokeDasharray="5,5"
-                  className="animate-stitch"
-                />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#stitchPattern)" />
-          </svg>
+      {/* Hero Section */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent z-10"></div>
+          {/* Using a placeholder image or similar from reference */}
+          <img 
+            className="w-full h-full object-cover opacity-40" 
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsBLAx-6DtkFCYWz5eEBy7NAYe-bWlGKS-KOIWpAvhtTbaAB_C1xH-cAt0buqrQdLeToGFAbNATILd05lexj5jJ5bQcLx4LHT98j85f7jSwdBxkMWkoYQX7ONwA50IhURf9kedbCVcKDRzqrBdHn_QloZNw9HTCJTO8sJ3RltAfxF1oLabqH4uplHDcvtnafkX86oN2cYvIYuQJQsmf0eKTg2R6vXhSzACfoFBn6f_SUr0FEPo_ga_MASooq2yAib11ds4SnG8-qA" 
+            alt="Large industrial shipping port with cargo containers"
+          />
         </div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-[#013765]">
-            {dictionary.contact.title}
-          </h1>
-        
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            {dictionary.contact.description}
-          </p>
-        </div>
-      </div>
-
-      {/* Contact Form */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 relative overflow-hidden">
-          {/* Decorative Corner Stitches */}
-          <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-[#FE6B01] rounded-tl-2xl stitch-corner"></div>
-          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-[#FE6B01] rounded-br-2xl stitch-corner"></div>
-
-          {status === 'success' ? (
-            <div className="text-center py-12">
-              <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                </svg>
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              {dictionary.contact.subtitle}
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6 text-white">
+              Get in <span className="text-primary">Touch</span>
+            </h1>
+            <p className="text-lg text-slate-400 leading-relaxed max-w-2xl mb-10">
+              {dictionary.contact.description}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                <span className="material-symbols-outlined text-primary">public</span>
+                Worldwide Distribution
               </div>
-              <h3 className="text-2xl font-bold text-[#013765] mb-4">Message Sent!</h3>
-              <p className="text-gray-600 mb-8">Thank you for contacting us. We will get back to you shortly.</p>
-              <button 
-                onClick={() => setStatus('idle')}
-                className="text-[#FE6B01] font-semibold hover:underline"
-              >
-                Send another message
-              </button>
+              <div className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                <span className="material-symbols-outlined text-primary">verified_user</span>
+                Quality Guaranteed
+              </div>
             </div>
-          ) : (
-            <>
-              {productInfo && (
-                <div className="mb-8 p-4 bg-orange-50 border border-orange-200 rounded-xl flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#FE6B01] text-white rounded-lg flex items-center justify-center text-2xl">
-                    📦
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#FE6B01] font-bold uppercase tracking-wider">Inquiry for:</p>
-                    <p className="text-[#013765] font-bold">{productInfo.name}</p>
-                  </div>
-                </div>
-              )}
-
-              {status === 'error' && (
-                <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 flex items-center gap-3">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Failed to send message. Please try again.
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name Field */}
-            <div className="form-group">
-              <label 
-                htmlFor="name" 
-                className="block text-sm font-semibold text-[#013765] mb-2"
-              >
-                {dictionary.contact.form.name}
-              </label>
-              <input 
-                type="text" 
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#FE6B01] focus:ring-2 focus:ring-[#FE6B01] focus:ring-opacity-20 transition-all duration-300 outline-none text-gray-900"
-                placeholder={dictionary.contact.form.namePlaceholder}
-              />
-            </div>
-
-            {/* Company Field */}
-            <div className="form-group">
-              <label 
-                htmlFor="company" 
-                className="block text-sm font-semibold text-[#013765] mb-2"
-              >
-                {dictionary.contact.form.company}
-              </label>
-              <input 
-                type="text" 
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#FE6B01] focus:ring-2 focus:ring-[#FE6B01] focus:ring-opacity-20 transition-all duration-300 outline-none text-gray-900"
-                placeholder={dictionary.contact.form.companyPlaceholder}
-              />
-            </div>
-
-            {/* Country Field */}
-            <div className="form-group">
-              <label 
-                htmlFor="country" 
-                className="block text-sm font-semibold text-[#013765] mb-2"
-              >
-                {dictionary.contact.form.country}
-              </label>
-              <input 
-                type="text" 
-                id="country"
-                name="country"
-                value={formData.country}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#FE6B01] focus:ring-2 focus:ring-[#FE6B01] focus:ring-opacity-20 transition-all duration-300 outline-none text-gray-900"
-                placeholder={dictionary.contact.form.countryPlaceholder}
-              />
-            </div>
-
-            {/* Email Field */}
-            <div className="form-group">
-              <label 
-                htmlFor="email" 
-                className="block text-sm font-semibold text-[#013765] mb-2"
-              >
-                {dictionary.contact.form.email}
-              </label>
-              <input 
-                type="email" 
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#FE6B01] focus:ring-2 focus:ring-[#FE6B01] focus:ring-opacity-20 transition-all duration-300 outline-none text-gray-900"
-                placeholder={dictionary.contact.form.emailPlaceholder}
-              />
-            </div>
-
-            {/* Message Field */}
-            <div className="form-group">
-              <label 
-                htmlFor="message" 
-                className="block text-sm font-semibold text-[#013765] mb-2"
-              >
-                {dictionary.contact.form.message}
-              </label>
-              <textarea 
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={6}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#FE6B01] focus:ring-2 focus:ring-[#FE6B01] focus:ring-opacity-20 transition-all duration-300 outline-none resize-none text-gray-900"
-                placeholder={dictionary.contact.form.messagePlaceholder}
-              />
-            </div>
-
-            {/* Submit Button */}
-            <div className="text-center pt-4">
-              <button 
-                type="submit" 
-                disabled={status === 'loading'}
-                className="w-full sm:w-auto bg-gradient-to-r from-[#FE6B01] to-[#ff8534] text-white px-12 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:from-[#ff8534] hover:to-[#FE6B01] disabled:opacity-70 disabled:transform-none flex items-center justify-center gap-3"
-              >
-                {status === 'loading' && (
-                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                )}
-                {status === 'loading' ? 'Sending...' : dictionary.contact.form.submit}
-              </button>
-            </div>
-          </form>
-          </>
-          )}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Main Content: Contact Form & Info */}
+      <section className="py-20 bg-background-dark relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16">
+            
+            {/* Contact Form */}
+            <div className="glass-panel p-8 md:p-12 rounded-2xl relative overflow-hidden">
+              
+              {status === 'success' ? (
+                 <div className="text-center py-12">
+                   <div className="w-20 h-20 bg-green-900/30 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-500/30">
+                     <span className="material-symbols-outlined text-4xl">check</span>
+                   </div>
+                   <h3 className="text-2xl font-bold text-white mb-4">Message Sent!</h3>
+                   <p className="text-slate-400 mb-8">Thank you for contacting us. We will get back to you shortly.</p>
+                   <button 
+                     onClick={() => setStatus('idle')}
+                     className="text-primary font-bold hover:underline"
+                   >
+                     Send another message
+                   </button>
+                 </div>
+              ) : (
+                <>
+                  <h2 className="text-3xl font-bold mb-2 text-white">{dictionary.contact.form.title}</h2>
+                  <p className="text-slate-400 mb-10">{dictionary.contact.form.subtitle}</p>
+
+                  {productInfo && (
+                    <div className="mb-8 p-4 bg-primary/10 border border-primary/20 rounded-xl flex items-center gap-4">
+                      <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center text-2xl">
+                        📦
+                      </div>
+                      <div>
+                        <p className="text-xs text-primary font-bold uppercase tracking-wider">Inquiry for:</p>
+                        <p className="text-white font-bold">{productInfo.name}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {status === 'error' && (
+                    <div className="mb-8 p-4 bg-red-900/20 border border-red-500/30 rounded-xl text-red-400 flex items-center gap-3">
+                      <span className="material-symbols-outlined">error</span>
+                      Failed to send message. Please try again.
+                    </div>
+                  )}
+
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-sm font-semibold text-slate-300 ml-1">{dictionary.contact.form.name}</label>
+                        <input 
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full bg-navy-muted border border-navy-border rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-white placeholder:text-slate-500" 
+                          placeholder={dictionary.contact.form.namePlaceholder}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-semibold text-slate-300 ml-1">{dictionary.contact.form.company}</label>
+                        <input 
+                          type="text"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          required
+                          className="w-full bg-navy-muted border border-navy-border rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-white placeholder:text-slate-500" 
+                          placeholder={dictionary.contact.form.companyPlaceholder}
+                        />
+                      </div>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-sm font-semibold text-slate-300 ml-1">{dictionary.contact.form.country}</label>
+                        <input 
+                          type="text"
+                          name="country"
+                          value={formData.country}
+                          onChange={handleChange}
+                          required
+                          className="w-full bg-navy-muted border border-navy-border rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-white placeholder:text-slate-500" 
+                          placeholder={dictionary.contact.form.countryPlaceholder} 
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-semibold text-slate-300 ml-1">{dictionary.contact.form.email}</label>
+                        <input 
+                          type="email" 
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full bg-navy-muted border border-navy-border rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-white placeholder:text-slate-500" 
+                          placeholder={dictionary.contact.form.emailPlaceholder}
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-slate-300 ml-1">{dictionary.contact.form.message}</label>
+                      <textarea 
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        className="w-full bg-navy-muted border border-navy-border rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-white placeholder:text-slate-500 resize-none" 
+                        placeholder={dictionary.contact.form.messagePlaceholder} 
+                        rows={5}
+                      />
+                    </div>
+                    <button 
+                      type="submit"
+                      disabled={status === 'loading'}
+                      className="w-full bg-primary hover:bg-orange-600 text-white font-bold py-5 rounded-xl transition-all flex items-center justify-center gap-3 group disabled:opacity-70"
+                    >
+                      {status === 'loading' ? (
+                        <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+                      ) : (
+                        <>
+                          {dictionary.contact.form.submit}
+                          <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+                        </>
+                      )}
+                    </button>
+                  </form>
+                </>
+              )}
+            </div>
+
+            {/* Contact Info & Details */}
+            <div className="flex flex-col justify-between">
+              <div className="space-y-12">
+                <div>
+                  <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-white">
+                    <span className="w-8 h-1 bg-primary rounded-full"></span>
+                    {dictionary.contact.info.title}
+                  </h3>
+                  <div className="grid gap-8">
+                    <div className="flex items-start gap-6">
+                      <div className="size-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                        <span className="material-symbols-outlined text-primary text-3xl">call</span>
+                      </div>
+                      <div>
+                        <p className="text-sm text-slate-400 font-medium uppercase tracking-wider mb-1">{dictionary.contact.info.phone}</p>
+                        <p className="text-xl font-bold text-white">+213 559 100 042</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-6">
+                      <div className="size-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                        <span className="material-symbols-outlined text-primary text-3xl">mail</span>
+                      </div>
+                      <div>
+                        <p className="text-sm text-slate-400 font-medium uppercase tracking-wider mb-1">{dictionary.contact.info.email}</p>
+                        <p className="text-xl font-bold text-white">Madeinbledtrading@gmail.com</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-6">
+                      <div className="size-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                        <span className="material-symbols-outlined text-primary text-3xl">language</span>
+                      </div>
+                      <div>
+                        <p className="text-sm text-slate-400 font-medium uppercase tracking-wider mb-1">{dictionary.contact.info.website}</p>
+                        <p className="text-xl font-bold text-white">www.madeinbled.com</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-white">
+                    <span className="w-8 h-1 bg-primary rounded-full"></span>
+                    {dictionary.contact.info.hours_title}
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center py-3 border-b border-navy-border">
+                      <span className="text-slate-300">{dictionary.contact.info.hours_week}</span>
+                      <span className="font-bold text-white">{dictionary.contact.info.hours_week_value}</span>
+                    </div>
+                    <div className="flex justify-between items-center py-3 border-b border-navy-border">
+                      <span className="text-slate-300">{dictionary.contact.info.hours_sat}</span>
+                      <span className="font-bold text-primary">{dictionary.contact.info.hours_sat_value}</span>
+                    </div>
+                    <div className="flex justify-between items-center py-3">
+                      <span className="text-slate-300">{dictionary.contact.info.hours_sun}</span>
+                      <span className="text-slate-500 font-bold uppercase">{dictionary.contact.info.hours_sun_value}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Social proof / logo cloud placeholder */}
+              <div className="mt-16 pt-10 border-t border-navy-border">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-6 text-center lg:text-left">Exporting To</p>
+                <div className="flex flex-wrap justify-center lg:justify-start gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-slate-400">
+                  <div className="text-lg font-black italic tracking-tighter">GLOBAL_TRADE</div>
+                  <div className="text-lg font-black italic tracking-tighter">EU_LOGISTICS</div>
+                  <div className="text-lg font-black italic tracking-tighter">MENA_PORT</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Global Offices Grid */}
+      <section className="py-24 bg-navy-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+          <h2 className="text-4xl font-black mb-4 uppercase tracking-tight text-white">{dictionary.contact.global_network.title.split('Global')[0]} Global <span className="text-primary">Network</span></h2>
+          <div className="w-24 h-1.5 bg-primary mx-auto mb-6"></div>
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg">{dictionary.contact.global_network.description}</p>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+          
+          {/* Office Cards */}
+          {dictionary.contact.global_network.offices.map((office: any, index: number) => (
+            <div key={index} className="group relative overflow-hidden rounded-3xl bg-background-dark border border-navy-border p-1 hover:border-primary/50 transition-colors duration-300">
+              <div className="h-48 overflow-hidden rounded-2xl mb-6">
+                <img 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                  src={[
+                    "https://lh3.googleusercontent.com/aida-public/AB6AXuDass3YnFGZMbuEJcrXhZBhYwWTEzOsFD4X6icQ5XAh8ecujrwktR9QdgArxpU3apxV6akxF6z12kqHFCKacTfEhMR3L4GdJrU_snjD2iHh9lMkYZU_OzXdXeeXKG1dARnDLu0fX0R7QLllnQjuWKS9xc_aHh6-7RaaN5RmczIi7KrntOJ6d4Al-_0bS3ZD7_-2gFwt8nUHSKjirQFdhK9q7FvdlTpYylAVyJjZ2dMXlA_SWj34h6qwU3ep-ZBfFBeZLo20kYUXh6Y",
+                    "https://lh3.googleusercontent.com/aida-public/AB6AXuBtnkjpqUa3e10UghDWMz1fXsEDJeQ5jS829XGQ2-woMDR5rizeTubS0S5pKEPB5gaa7pBWE4uLL3tebMHpQxk7e3ImcAPFtwR3R7HPnWUSGDAZEH0fb4VL3PgnkBVZUp5JpX3EAuK5dd665AzPL1aMGwJj2sMgl-uP51CXdD4q6pDXwfI7V0E3bGpqBE6dqpxWfp8-eowexnfuM_d1Ab-g1hgTaVXdutfuwUu0wyER2_yA8Q5KXRjK1hZZyuZ1XekC9F_rhdyCUIc",
+                    "https://lh3.googleusercontent.com/aida-public/AB6AXuAqQOQTW5oyLNKp4652-klrBfDSNHyqj2dOc05b8HgJYDbGFavHyhU6FWjojI7YqELwfg7XM242_wjHkQJGrQnSE3Itgwr5v5vNJq7sh5rAsEfr306xlWKM8xwMZYA9CjAr4U7a7UYn2TXYbVOOZVOg4TqSdohCIxekH237vYCFxpjbcOtQR7hsQ5Go2ZPjqB5kEM_JOF3SjtNWUwFv2H2u8ImJP2eplI4olOnKTP7E19blmWDagChhqeICRaT0pJwOv1FtQjPiy-c"
+                  ][index]}
+                  alt={office.city} 
+                />
+              </div>
+              <div className="px-6 pb-8">
+                <div className={`inline-block px-3 py-1 ${index === 0 ? 'bg-primary text-white' : 'bg-border-dark text-slate-300'} text-[10px] font-black uppercase tracking-widest rounded mb-4`}>
+                  {office.tag}
+                </div>
+                <h4 className="text-2xl font-bold mb-2 text-white">{office.city}</h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">{office.desc}</p>
+                <div className="flex items-center gap-2 text-primary font-bold text-sm cursor-pointer hover:gap-3 transition-all">
+                   View Location <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </section>
+
+      {/* Map Placeholder Section */}
+      <section className="h-[400px] w-full relative overflow-hidden">
+        <div className="absolute inset-0 bg-slate-900 border-t border-border-dark">
+           <img 
+             className="w-full h-full object-cover grayscale opacity-30" 
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDaf2cglX1MAU9JiM_IyMqalvd0drG7VdKA1PwlmS16fzGLfLA3ZcaBz-Ut4Fchh3GUuTJP2qVkBH_rWkWRVBGhviGJBs7BXLGbtklskWSM9NFEI-otoJADulUu2Wc7R5-WaRmxmO_lLjJ8qx6hiuGxHgqgFu44pNQBoJb-pQ2GaIfUqFg824qxFAini-i88_GnJW0BKeosStWGfOT3FPiFHfHCJxcJGal5BwFnAMOA7TvAdB8SgUhJ2sI-WskZor9XZbCEFK5DNg" 
+             alt="World Map" 
+           />
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="glass-panel p-6 rounded-2xl flex items-center gap-4 border-primary/40 bg-background-dark/60 backdrop-blur-md border border-border-dark">
+            <span className="material-symbols-outlined text-primary text-4xl animate-bounce">location_on</span>
+            <div>
+              <p className="font-bold text-lg text-white">Main Trading Office</p>
+              <p className="text-slate-400 text-sm">Algiers, North Africa District</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Floating WhatsApp Button */}
       <button
         onClick={handleWhatsAppClick}
-        className="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 z-50 group"
+        className="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 z-50 group flex items-center justify-center"
         aria-label="Contact us on WhatsApp"
       >
         <svg 
@@ -289,30 +391,14 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
 
       {/* Custom Styles */}
       <style jsx>{`
-        @keyframes stitch {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: 20;
-          }
+        .glass-panel {
+          background: rgba(22, 42, 74, 0.6);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(243, 113, 32, 0.1);
         }
-
-        .animate-stitch {
-          animation: stitch 2s linear infinite;
-        }
-
-        .stitch-corner {
-          border-style: dashed;
-        }
-
+        
         .form-group {
           position: relative;
-        }
-
-        .form-group input:focus + label,
-        .form-group textarea:focus + label {
-          color: #FE6B01;
         }
 
         /* Smooth scroll behavior */

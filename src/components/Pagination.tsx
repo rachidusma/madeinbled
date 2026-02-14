@@ -20,16 +20,14 @@ export default function Pagination({ totalPages, currentPage }: PaginationProps)
   if (totalPages <= 1) return null
 
   return (
-    <div className="flex justify-center items-center space-x-2 mt-12">
+    <div className="mt-12 flex items-center justify-center gap-2">
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="flex h-10 w-10 items-center justify-center rounded-lg border border-border-dark bg-neutral-dark text-white hover:border-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Previous page"
       >
-        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
+        <span className="material-symbols-outlined">chevron_left</span>
       </button>
 
       {[...Array(totalPages)].map((_, i) => {
@@ -38,10 +36,10 @@ export default function Pagination({ totalPages, currentPage }: PaginationProps)
           <button
             key={page}
             onClick={() => handlePageChange(page)}
-            className={`w-10 h-10 rounded-lg font-semibold transition-all ${
+            className={`flex h-10 w-10 items-center justify-center rounded-lg border transition-colors ${
               currentPage === page
-                ? 'bg-[#FE6B01] text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-50 border border-gray-200'
+                ? 'border-primary bg-primary text-white font-bold'
+                : 'border-border-dark bg-neutral-dark text-white hover:border-primary'
             }`}
           >
             {page}
@@ -52,12 +50,10 @@ export default function Pagination({ totalPages, currentPage }: PaginationProps)
       <button
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="flex h-10 w-10 items-center justify-center rounded-lg border border-border-dark bg-neutral-dark text-white hover:border-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Next page"
       >
-        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
+        <span className="material-symbols-outlined">chevron_right</span>
       </button>
     </div>
   )

@@ -23,76 +23,87 @@ export default async function ProductPage({
   }
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display">
       <Navbar dictionary={dictionary} lang={lang} />
 
-      <div className="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <nav className="flex mb-8 text-sm text-gray-500">
-          <Link href={`/${lang}/products`} className="hover:text-[#FE6B01] transition-colors">
+      <div className="max-w-7xl mx-auto px-4 md:px-10 py-12 pt-32">
+        {/* Breadcrumb - Optional but good for UX */}
+        <nav className="flex mb-8 text-sm text-slate-500">
+          <Link href={`/${lang}/products`} className="hover:text-primary transition-colors">
             {dictionary.products.title}
           </Link>
           <span className="mx-2">/</span>
-          <span className="text-gray-900 font-medium">{product.name}</span>
+          <span className="text-primary font-medium">{product.name}</span>
         </nav>
 
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* Base Image Container */}
-            <div className="relative aspect-square lg:aspect-auto h-full min-h-[400px] bg-gray-100 p-8 flex items-center justify-center">
-              {/* Stitch Decoration */}
-              <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-[#FE6B01] rounded-tl-3xl stitch-corner"></div>
-              
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Image Gallery / Main Image */}
+          <div className="flex flex-col gap-4">
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 group relative shadow-2xl shadow-black/20">
               {product.image ? (
-                <div className="relative w-full h-full">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  priority
+                />
               ) : (
-                <svg className="w-32 h-32 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
+                <div className="w-full h-full flex items-center justify-center bg-neutral-dark text-slate-600">
+                  <span className="material-symbols-outlined text-6xl">image</span>
+                </div>
               )}
+                 <div className="absolute top-4 left-4 flex gap-2">
+                    <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                      {product.category.name}
+                    </span>
+                 </div>
             </div>
+          </div>
 
-            {/* Product Info */}
-            <div className="p-8 lg:p-12 flex flex-col justify-center relative">
-               {/* Stitch Decoration */}
-               <div className="absolute bottom-0 right-0 w-24 h-24 border-b-4 border-r-4 border-[#FE6B01] rounded-br-3xl stitch-corner"></div>
+          {/* Product Header & Key Info */}
+          <div className="flex flex-col justify-center">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-black mb-4 tracking-tight leading-tight">{product.name}</h1>
+              <p className="text-xl text-primary font-bold mb-8 flex items-center gap-2">
+                <span className="material-symbols-outlined">location_on</span>
+                {dictionary.product_page.origin}: <span className="text-white">Algeria</span>
+              </p>
+              
+              <div className="w-20 h-1.5 bg-primary rounded-full mb-8"></div>
 
-              <div className="mb-6">
-                <span className="inline-block px-3 py-1 bg-orange-100 text-[#FE6B01] rounded-full text-sm font-semibold mb-4">
-                  {product.category.name}
-                </span>
-                <h1 className="text-4xl font-extrabold text-[#013765] mb-4">
-                  {product.name}
-                </h1>
-                <div className="w-20 h-1 bg-[#FE6B01] rounded-full mb-6"></div>
-              </div>
+              <p className="text-slate-300 text-lg leading-relaxed mb-10 font-light">
+                {product.description}
+              </p>
 
-              <div className="prose prose-lg text-gray-600 mb-8">
-                <p>{product.description}</p>
-              </div>
-
-              <div className="mt-auto">
-                <Link
+              <Link
                   href={`/${lang}/contact?product=${encodeURIComponent(product.name)}&url=${encodeURIComponent(`https://${host}/${lang}/products/${id}`)}`}
-                  className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white bg-gradient-to-r from-[#FE6B01] to-[#ff8534] hover:from-[#ff8534] hover:to-[#FE6B01] shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl h-16 px-10 bg-primary hover:bg-orange-600 text-white text-lg font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 gap-3 group"
                 >
                   {dictionary.product_page.contact_cta}
-                  <svg className="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </Link>
-              </div>
+                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </Link>
             </div>
           </div>
         </div>
+
+        {/* Certification Logos */}
+        <div className="border-t border-white/10 mt-20 py-12 flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-40 hover:opacity-100 transition-opacity duration-500">
+           <div className="flex items-center gap-3 font-black text-xl md:text-2xl">
+              <span className="material-symbols-outlined text-4xl md:text-5xl text-green-500">eco</span> 
+              <span>{dictionary.product_page.certifications.organic}</span>
+           </div>
+           <div className="flex flex-col items-center">
+              <span className="text-2xl md:text-3xl font-black">{dictionary.product_page.certifications.iso}</span>
+              <span className="text-[10px] tracking-[4px] font-bold">CERTIFIED</span>
+           </div>
+           <div className="border-2 border-white px-4 py-2 font-black italic text-xl md:text-2xl">{dictionary.product_page.certifications.haccp}</div>
+           <div className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-3xl md:text-4xl">verified_user</span>
+              <span className="font-bold text-lg md:text-xl">{dictionary.product_page.certifications.fda}</span>
+           </div>
+        </div>
+
       </div>
 
       <Footer dictionary={dictionary} />

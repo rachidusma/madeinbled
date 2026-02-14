@@ -17,11 +17,15 @@ const config: Config = {
       colors: {
         'bled-orange': '#FE6B01',
         'bled-blue': '#013765',
-        'primary': '#FE6B01', // Updated to match brand orange
+        'primary': '#f37120', // Updated to match brand orange from reference
         'background-light': '#f8f7f5',
-        'background-dark': '#050a14', // Slightly darker blue-tinged background
-        'navy-deep': '#013765', // Updated to match brand blue (bled-blue)
-        'navy-card': '#0a2342', // Adjusted card color to harmonize with blue theme
+        'background-dark': '#0a192f', // Updated to match reference exactly (#0a192f instead of #0f172a)
+        'navy-deep': '#0a192f', // Updated to match background-dark
+        'navy-card': '#1e293b', // Updated to match neutral-dark
+        'navy-muted': '#162a4a', // Added from Contact Page reference
+        'navy-border': '#1e3a61', // Added from Contact Page reference
+        'neutral-dark': '#1e293b', // Refined from reference
+        'border-dark': '#334155', // Refined from reference
       },
       fontFamily: {
         "display": ["Inter", "sans-serif"]
@@ -34,6 +38,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
 export default config

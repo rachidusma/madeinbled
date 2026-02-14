@@ -140,20 +140,56 @@
   },
   "contact": {
     "title": "Contactez-nous",
-    "subtitle": "Contactez-nous pour vos besoins d'exportation",
-    "description": "Vous souhaitez obtenir un devis, poser une question ou établir un partenariat commercial ? Notre équipe est à votre écoute.",
+    "subtitle": "Partenariats Commerciaux Mondiaux",
+    "description": "Votre passerelle vers des exportations agricoles de qualité supérieure. Nous nous spécialisons dans la connexion de produits de haute qualité avec les marchés mondiaux grâce à des partenariats commerciaux fluides et une logistique optimisée.",
     "form": {
-      "name": "Nom",
+      "title": "Envoyer une demande",
+      "subtitle": "Remplissez le formulaire ci-dessous et nos spécialistes commerciaux vous contacteront sous 24 heures.",
+      "name": "Nom complet",
       "company": "Entreprise",
       "country": "Pays",
-      "email": "Email",
+      "email": "Adresse Email",
       "message": "Message",
-      "submit": "Envoyer le message",
-      "namePlaceholder": "Votre nom complet",
-      "companyPlaceholder": "Nom de votre entreprise",
-      "countryPlaceholder": "Votre pays",
-      "emailPlaceholder": "votre.email@exemple.com",
+      "submit": "Envoyer la demande",
+      "namePlaceholder": "Jean Dupont",
+      "companyPlaceholder": "Votre Organisation",
+      "countryPlaceholder": "Sélectionnez le pays",
+      "emailPlaceholder": "email@exemple.com",
       "messagePlaceholder": "Parlez-nous de vos besoins..."
+    },
+    "info": {
+      "title": "Coordonnées",
+      "phone": "Numéro de téléphone",
+      "email": "Adresse Email",
+      "website": "Site Officiel",
+      "hours_title": "Heures d'ouverture",
+      "hours_week": "Lundi - Vendredi",
+      "hours_week_value": "08:00 - 18:00",
+      "hours_sat": "Samedi",
+      "hours_sat_value": "Sur rendez-vous",
+      "hours_sun": "Dimanche",
+      "hours_sun_value": "Fermé"
+    },
+    "global_network": {
+      "title": "Notre Réseau Mondial",
+      "description": "Hubs stratégiquement positionnés pour faciliter l'exportation agricole rapide et la logistique à travers les continents.",
+      "offices": [
+        {
+          "city": "Alger, DZ",
+          "tag": "Siège Social",
+          "desc": "Notre principal centre d'approvisionnement et hub opérationnel pour les produits agricoles premium en Afrique du Nord."
+        },
+        {
+          "city": "Doha, QA",
+          "tag": "Partenaire Stratégique",
+          "desc": "Un nœud clé dans notre réseau en expansion, facilitant les relations commerciales directes sur le marché qatari."
+        },
+        {
+          "city": "Dubaï, UAE",
+          "tag": "Portail Commercial",
+          "desc": "Positionné stratégiquement pour le commerce au Moyen-Orient, assurant une livraison efficace vers les pays du Golfe."
+        }
+      ]
     }
   },
   "product_page": {
@@ -162,7 +198,15 @@
     "no_products": "Aucun produit trouvé",
     "no_products_desc": "Essayez d'ajuster vos filtres ou revenez plus tard.",
     "contact_cta": "Contactez-nous à propos de ce produit",
-    "back_to_products": "Retour aux produits"
+    "back_to_products": "Retour aux produits",
+    "origin": "Origine",
+    "certifications": {
+      "title": "Certifications",
+      "organic": "Biologique",
+      "iso": "ISO 22000",
+      "haccp": "HACCP",
+      "fda": "Approuvé FDA"
+    }
   },
   "footer": {
     "follow_us": "Suivez-nous"

@@ -56,9 +56,7 @@ export default function Navbar({ dictionary, lang }: { dictionary: any, lang: st
             <Link href={redirectedPathname('ar')} className={`hover:text-primary ${lang === 'ar' ? 'font-bold text-primary' : ''}`}>AR</Link>
           </div>
           
-          <button className="rounded bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
-            Get a Quote
-          </button>
+
         </nav>
 
         {/* Mobile menu button */}

@@ -13,7 +13,7 @@ export default async function Contact({
   const dictionary = await getDictionary(lang)
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <main className="min-h-screen bg-background-dark">
       <Navbar dictionary={dictionary} lang={lang} />
       <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
         <ContactForm dictionary={dictionary} />
