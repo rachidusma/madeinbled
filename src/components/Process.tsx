@@ -1,44 +1,58 @@
 export default function Process({ dictionary }: { dictionary: any }) {
   return (
-    <section id="process" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            {dictionary.process.title}
-          </h2>
-        </div>
-
-        <div className="relative">
-          {/* Connecting Line (Desktop) */}
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 transform -translate-y-1/2"></div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {dictionary.process.steps.map((step: any, index: number) => (
-              <div key={index} className="relative bg-white p-6 rounded-lg text-center md:bg-transparent">
-                <div className="w-16 h-16 mx-auto bg-bled-orange text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-lg ring-4 ring-white">
-                  {index + 1}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-gray-500">{step.desc}</p>
-              </div>
-            ))}
+    <section className="bg-navy-deep py-24 px-6 lg:px-20" id="about">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="relative">
+            <div className="aspect-square overflow-hidden rounded-2xl border-4 border-white/5">
+              <img 
+                alt="Algerian Agriculture" 
+                className="h-full w-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCby1JGOAHfa1VGMQ0ATzDVJb4u-6694_sH2smcm9cQcdHEHsBW-U6jcQBmkdftaQLa6v9v-OZMX39X8Ckd101SRLC6Oj4d_mff_3tol_TxB8YpsfX9loROsaa0U29FisWofbSMSPj48xMzgMihf7dy62Plt5g_f9KewEhTzQuLpE9a8jjrmPoCqax-PgunABHyvWYdPRup4_vYVc2moMzQZ060d-lhK6TG4gTyDzGivraW2D_qNbsCvfZsYQmNWDEQsmwK9gp3w4s"
+              />
+            </div>
+            <div className="absolute -bottom-8 -right-8 bg-primary p-10 rounded-xl hidden md:block">
+              <div className="text-5xl font-black text-white">2026</div>
+              <div className="text-sm font-bold text-white/80 uppercase tracking-widest mt-1">Edition Release</div>
+            </div>
           </div>
-        </div>
-
-        {/* Why Choose Us subsection */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
-           <div className="bg-blue-50 p-8 rounded-xl border border-bled-blue">
-             <h3 className="text-xl font-bold text-bled-blue mb-3">{dictionary.why_us.quality.title}</h3>
-             <p className="text-blue-900">{dictionary.why_us.quality.desc}</p>
-           </div>
-           <div className="bg-orange-50 p-8 rounded-xl border border-bled-orange">
-             <h3 className="text-xl font-bold text-bled-orange mb-3">{dictionary.why_us.logistics.title}</h3>
-             <p className="text-orange-900">{dictionary.why_us.logistics.desc}</p>
-           </div>
-           <div className="bg-gray-50 p-8 rounded-xl border border-gray-200">
-             <h3 className="text-xl font-bold text-gray-800 mb-3">{dictionary.why_us.price.title}</h3>
-             <p className="text-gray-700">{dictionary.why_us.price.desc}</p>
-           </div>
+          <div>
+            <h2 className="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-4">The Benchmark of Trust</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">Algeria - Distribution & Export Experts</h3>
+            <p className="text-slate-300 text-lg leading-relaxed mb-8">
+              At Made in Bled Trading, we are more than just exporters; we are the strategic link between the fertile landscapes of Algeria and the demanding global markets. 
+              Our 2026 Edition marks a milestone in industrial scalability and logistical efficiency.
+            </p>
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 mt-1">
+                  <span className="material-symbols-outlined text-primary text-3xl">public</span>
+                </div>
+                <div>
+                  <h5 className="text-xl font-bold text-white mb-2">Global Reach</h5>
+                  <p className="text-slate-400 text-sm">Strategically located to serve Europe, Africa, and the Middle East with rapid turnaround times.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 mt-1">
+                  <span className="material-symbols-outlined text-primary text-3xl">verified_user</span>
+                </div>
+                <div>
+                  <h5 className="text-xl font-bold text-white mb-2">Quality Assurance</h5>
+                  <p className="text-slate-400 text-sm">Every shipment undergoes rigorous international standard inspections before departure.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 mt-1">
+                  <span className="material-symbols-outlined text-primary text-3xl">inventory_2</span>
+                </div>
+                <div>
+                  <h5 className="text-xl font-bold text-white mb-2">Modern Logistics</h5>
+                  <p className="text-slate-400 text-sm">Advanced temperature-controlled storage and real-time tracking for all agricultural assets.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

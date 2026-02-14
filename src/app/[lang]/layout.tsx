@@ -22,8 +22,14 @@ export default function RootLayout({
   params: { lang: string }
 }) {
   return (
-    <html lang={params.lang}>
-      <body className={inter.className}>{children}</body>
+    <html lang={params.lang} className="dark">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+      </head>
+      <body className={`${inter.className} bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300`}>
+        {children}
+      </body>
     </html>
   )
 }

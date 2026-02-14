@@ -11,30 +11,87 @@
     "subtitle": "Connecting global markets with the finest sustainable produce from the heart of Algeria's fertile lands.",
     "cta": "Contact Us"
   },
-  "about_page": {
-    "title": "About Us",
-    "presentation": {
-      "title": "Company Presentation",
-      "content": "MADE IN BLED TRADING is an Algerian company specializing in the export of agricultural and agri-food products, specifically fruits, vegetables, and dates. Our ambition is to connect Algerian expertise to international markets through responsible, structured, and professional trade."
+    "about_page": {
+        "title": "About Us",
+        "hero": {
+            "since": "Since 2021",
+            "title_prefix": "Connecting",
+            "title_highlight": "Algeria",
+            "title_suffix": "to the World",
+            "description": "Bridging the gap between premium Algerian agricultural terroir and international markets with excellence, integrity, and logistical mastery.",
+            "cta_primary": "Explore Our Story",
+            "cta_secondary": "View Portfolio"
+        },
+        "mission": {
+            "title": "Mission & Vision",
+            "subtitle": "Our Purpose",
+            "mission_title": "Our Mission",
+            "mission_content": "To showcase the richness of Algerian terroir to the global market through sustainable export practices, empowering local farmers while ensuring global food security.",
+            "vision_title": "Our Vision",
+            "vision_content": "To become the leading bridge for premium Algerian agricultural products worldwide, recognized for quality, reliability, and innovation by 2030.",
+            "stat_label": "Organic Sourcing"
+        },
+        "values": {
+            "title": "Our Core Values",
+            "subtitle": "The Way We Work",
+            "items": [
+                {
+                    "title": "Uncompromising Quality",
+                    "description": "We adhere to the highest international food safety and quality standards, ensuring every product represents the best of Algeria."
+                },
+                {
+                    "title": "Full Transparency",
+                    "description": "Complete traceability from the farm gate to the final destination, fostering trust with our global partners and customers."
+                },
+                {
+                    "title": "Logistical Excellence",
+                    "description": "Optimized supply chains and state-of-the-art cold chain management to preserve freshness across continents."
+                }
+            ]
+        },
+        "history": {
+            "title": "Our Journey Towards 2026",
+            "subtitle": "The Evolution",
+            "description": "Founded with a passion for Algerian agriculture, Made in Bled Trading has rapidly expanded its footprint. Our upcoming \"2026 Edition\" marks a significant milestone in our expansion into high-tech sustainable packaging and direct-to-retail supply chains in Europe and the Americas.",
+            "timeline": [
+                {
+                    "year": "2021",
+                    "title": "Foundations",
+                    "description": "Established roots in the fertile Mitidja plains, specializing in olive oil exports."
+                },
+                {
+                    "year": "2024",
+                    "title": "Diversification",
+                    "description": "Expanded to dry fruits and premium Deglet Nour dates, reaching 15 global markets."
+                },
+                {
+                    "year": "2026",
+                    "title": "The New Horizon",
+                    "description": "Launching our 2026 Edition: Zero-carbon logistics and blockchain traceability systems."
+                }
+            ]
+        },
+        "global_reach": {
+            "title": "Global Reach",
+            "subtitle": "International Presence",
+            "description": "Headquartered in Algiers, our operational network spans across continents, ensuring fresh Algerian produce is never far from your table.",
+            "regions": [
+                {
+                    "name": "Europe",
+                    "description": "Main hubs in Marseille, Hamburg, and Madrid."
+                },
+                {
+                    "name": "Africa",
+                    "description": "Pan-African trade routes across the Maghreb and Sub-Saharan regions."
+                },
+                {
+                    "name": "Middle East",
+                    "description": "Strategic distribution centers in Dubai and Jeddah."
+                }
+            ],
+            "serving_label": "Serving 25+ Countries Worldwide"
+        }
     },
-    "mission": {
-      "title": "Our Mission",
-      "content": "To promote the excellence of Algerian products internationally and create sustainable bridges between local producers and foreign partners."
-    },
-    "vision": {
-      "title": "Our Vision",
-      "content": "To make MADE IN BLED TRADING a trusted reference in international trade, where every exported product reflects the quality, richness, and pride of Algeria."
-    },
-    "values": {
-      "title": "Our Values",
-      "items": [
-        "Quality",
-        "Reliability",
-        "Authenticity",
-        "Innovation"
-      ]
-    }
-  },
   "products": {
     "title": "Our Product Categories",
     "description": "MADE IN BLED TRADING is an Algerian company specializing in the export of agricultural and agri-food products, specifically fruits, vegetables, and dates. Our ambition is to connect Algerian expertise to international markets through responsible, structured, and professional trade.",
@@ -75,6 +132,11 @@
   "cta_final": {
     "title": "Ready to order?",
     "button": "Contact us today"
+  },
+  "contact_cta": {
+    "title": "Ready to scale your supply chain?",
+    "subtitle": "Partner with Algeria's most reliable export network for the 2026 season.",
+    "button": "Request Pricing Now"
   },
   "contact": {
     "title": "Contact Us",

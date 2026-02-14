@@ -2,25 +2,44 @@ import Link from 'next/link'
 
 export default function Hero({ dictionary }: { dictionary: any }) {
   return (
-    <section className="relative bg-bled-blue text-white overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-40">
-        {/* Placeholder for Hero Image - simulating agriculture field */}
-        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+    <section className="relative flex min-h-[85vh] w-full items-center justify-center overflow-hidden px-6 lg:px-20">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/90 to-transparent z-10"></div>
+        <img 
+          alt="Global Shipping Port" 
+          className="h-full w-full object-cover" 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa2kHHaVg7ljEQGu_nFuYUWchFd6tOmrSexbYwW5LB_OcnuoppiNm08DRY0B8nSJIARSPaHHm5Vs7MVNf2Skew6h3AhBivvhd-kGJP1t4je9_XXyyNGaLNndpt1CugvE4f2PwvCOJKA1B1x2R1AQaNKseoF86pFPcGrXKrheZf6LbfDnyEeY02M3JVwA7KIPs8ubMb0bIvLYFhxp3xgnJyExJ4LYmxpopluqylRIp0-pgh3JT1kV4vwH8TOiK2UaUBArh1pb6ko0s"
+        />
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48 flex flex-col items-center text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-          {dictionary.hero.title}
-        </h1>
-        <p className="max-w-2xl text-xl md:text-2xl mb-10 text-gray-200">
-          {dictionary.hero.subtitle}
-        </p>
-        <Link 
-          href="#contact" 
-          className="bg-bled-orange text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition duration-300 shadow-lg transform hover:scale-105"
-        >
-          {dictionary.hero.cta}
-        </Link>
+      <div className="relative z-20 w-full max-w-7xl">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-1.5 border border-primary/30 mb-6 font-display">
+            <span className="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">Now Exporting 2026 Edition</span>
+          </div>
+          <h1 className="mb-6 text-5xl font-black leading-[1.1] text-white md:text-7xl lg:text-8xl tracking-tight">
+            {dictionary.hero.title_part1 || "CONNECTING"} <span className="text-primary">{dictionary.hero.title_part2 || "ALGERIA"}</span> {dictionary.hero.title_part3 || "TO THE WORLD"}
+          </h1>
+          <p className="mb-10 text-lg md:text-xl text-slate-300 leading-relaxed font-medium">
+            {dictionary.hero.subtitle}
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link 
+              href="#products" 
+              className="flex items-center justify-center rounded bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all"
+            >
+              {dictionary.hero.cta_products || "Explore Our Catalog"}
+            </Link>
+            <Link 
+              href="#contact" 
+              className="flex items-center justify-center rounded border border-white/20 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all font-display"
+            >
+              Contact Sales
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   )

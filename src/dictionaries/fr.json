@@ -11,30 +11,87 @@
     "subtitle": "Connecter les marchés mondiaux avec les meilleurs produits durables issus des terres fertiles d'Algérie.",
     "cta": "Contactez-nous"
   },
-  "about_page": {
-    "title": "À propos de nous",
-    "presentation": {
-      "title": "Présentation de l'entreprise",
-      "content": "MADE IN BLED TRADING est une entreprise algérienne spécialisée dans l’exportation de produits agricoles et agroalimentaires, notamment les fruits, les légumes et les dattes. Notre ambition est de connecter le savoir-faire algérien aux marchés internationaux à travers un commerce responsable, structuré et professionnel."
+    "about_page": {
+        "title": "À Propos",
+        "hero": {
+            "since": "Depuis 2021",
+            "title_prefix": "Connecter",
+            "title_highlight": "l'Algérie",
+            "title_suffix": "au Monde",
+            "description": "Combler le fossé entre le terroir agricole algérien de qualité supérieure et les marchés internationaux avec excellence, intégrité et maîtrise logistique.",
+            "cta_primary": "Découvrir Notre Histoire",
+            "cta_secondary": "Voir le Portfolio"
+        },
+        "mission": {
+            "title": "Mission & Vision",
+            "subtitle": "Notre Objectif",
+            "mission_title": "Notre Mission",
+            "mission_content": "Mettre en valeur la richesse du terroir algérien sur le marché mondial grâce à des pratiques d'exportation durables, en autonomisant les agriculteurs locaux tout en assurant la sécurité alimentaire mondiale.",
+            "vision_title": "Notre Vision",
+            "vision_content": "Devenir le pont principal pour les produits agricoles algériens de première qualité dans le monde entier, reconnu pour la qualité, la fiabilité et l'innovation d'ici 2030.",
+            "stat_label": "Approvisionnement Bio"
+        },
+        "values": {
+            "title": "Nos Valeurs",
+            "subtitle": "Notre Façon de Travailler",
+            "items": [
+                {
+                    "title": "Qualité Sans Compromis",
+                    "description": "Nous adhérons aux normes internationales de sécurité alimentaire et de qualité les plus élevées, garantissant que chaque produit représente le meilleur de l'Algérie."
+                },
+                {
+                    "title": "Transparence Totale",
+                    "description": "Traçabilité complète de la ferme à la destination finale, favorisant la confiance avec nos partenaires et clients mondiaux."
+                },
+                {
+                    "title": "Excellence Logistique",
+                    "description": "Chaînes d'approvisionnement optimisées et gestion de la chaîne du froid de pointe pour préserver la fraîcheur à travers les continents."
+                }
+            ]
+        },
+        "history": {
+            "title": "Notre Voyage Vers 2026",
+            "subtitle": "L'Évolution",
+            "description": "Fondée avec une passion pour l'agriculture algérienne, Made in Bled Trading a rapidement étendu son empreinte. Notre prochaine « Édition 2026 » marque une étape importante dans notre expansion vers des emballages durables de haute technologie et des chaînes d'approvisionnement directes au détail en Europe et dans les Amériques.",
+            "timeline": [
+                {
+                    "year": "2021",
+                    "title": "Fondations",
+                    "description": "Établissement des racines dans les plaines fertiles de la Mitidja, spécialisation dans l'exportation d'huile d'olive."
+                },
+                {
+                    "year": "2024",
+                    "title": "Diversification",
+                    "description": "Extension aux fruits secs et aux dattes Deglet Nour premium, atteignant 15 marchés mondiaux."
+                },
+                {
+                    "year": "2026",
+                    "title": "Le Nouvel Horizon",
+                    "description": "Lancement de notre Édition 2026 : Logistique zéro carbone et systèmes de traçabilité blockchain."
+                }
+            ]
+        },
+        "global_reach": {
+            "title": "Portée Mondiale",
+            "subtitle": "Présence Internationale",
+            "description": "Basé à Alger, notre réseau opérationnel s'étend sur plusieurs continents, garantissant que les produits frais algériens ne sont jamais loin de votre table.",
+            "regions": [
+                {
+                    "name": "Europe",
+                    "description": "Hubs principaux à Marseille, Hambourg et Madrid."
+                },
+                {
+                    "name": "Afrique",
+                    "description": "Routes commerciales panafricaines à travers le Maghreb et les régions subsahariennes."
+                },
+                {
+                    "name": "Moyen-Orient",
+                    "description": "Centres de distribution stratégiques à Dubaï et Djeddah."
+                }
+            ],
+            "serving_label": "Desservant 25+ Pays dans le Monde"
+        }
     },
-    "mission": {
-      "title": "Notre Mission",
-      "content": "Promouvoir l’excellence des produits algériens à l’international et créer des ponts durables entre les producteurs locaux et les partenaires étrangers."
-    },
-    "vision": {
-      "title": "Notre Vision",
-      "content": "Faire de MADE IN BLED TRADING une référence de confiance dans le commerce international, où chaque produit exporté reflète la qualité, la richesse et la fierté de l’Algérie."
-    },
-    "values": {
-      "title": "Nos Valeurs",
-      "items": [
-        "Qualité",
-        "Fiabilité",
-        "Authenticité",
-        "Innovation"
-      ]
-    }
-  },
   "products": {
     "title": "Nos catégories de produits",
     "description": "MADE IN BLED TRADING est une entreprise algérienne spécialisée dans l'exportation de produits agricoles et agroalimentaires, spécifiquement les fruits, légumes et dattes. Notre ambition est de connecter l'expertise algérienne aux marchés internationaux à travers un commerce responsable, structuré et professionnel.",
@@ -75,6 +132,11 @@
   "cta_final": {
     "title": "Prêt à commander ?",
     "button": "Contactez-nous aujourd'hui"
+  },
+  "contact_cta": {
+    "title": "Prêt à faire évoluer votre chaîne d'approvisionnement ?",
+    "subtitle": "Associez-vous au réseau d'exportation le plus fiable d'Algérie pour la saison 2026.",
+    "button": "Demandez un devis maintenant"
   },
   "contact": {
     "title": "Contactez-nous",

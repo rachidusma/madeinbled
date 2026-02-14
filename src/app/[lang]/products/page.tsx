@@ -35,7 +35,7 @@ export default async function Products({
             {dictionary.products.title}
           </h1>
           <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-            {dictionary.about_page.presentation.content}
+            {dictionary.products.description}
           </p>
         </div>
 

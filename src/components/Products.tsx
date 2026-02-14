@@ -8,9 +8,10 @@ import Image from 'next/image'
 interface ProductsProps {
   dictionary: any
   categories: Category[]
+  lang: string
 }
 
-export default function Products({ dictionary, categories }: ProductsProps) {
+export default function Products({ dictionary, categories, lang }: ProductsProps) {
   const sliderRef = useRef<HTMLDivElement>(null)
 
   const scroll = (direction: 'left' | 'right') => {
@@ -28,93 +29,75 @@ export default function Products({ dictionary, categories }: ProductsProps) {
   }
 
   return (
-    <section id="products" className="py-24 bg-[#0A0D14] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {dictionary.products.title}
-            </h2>
-            <p className="text-[#94A3B8] text-lg leading-relaxed">
-              {dictionary.products.description}
-            </p>
+    <section className="bg-background-dark py-24 px-6 lg:px-20" id="products">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <h2 className="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-3">Our Expertise</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-white">{dictionary.products.title}</h3>
           </div>
-          <Link 
-            href="/products" 
-            className="group flex items-center gap-2 text-white font-medium hover:text-[#3B82F6] transition-colors whitespace-nowrap"
-          >
-            {dictionary.products.discover_more}
-            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+          <p className="max-w-md text-slate-400">
+            {dictionary.products.description}
+          </p>
         </div>
 
-        {/* Slider Container */}
-        <div className="relative group/slider">
-          {/* Slider */}
-          <div 
-            ref={sliderRef}
-            className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory pb-8"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {categories.map((category, index) => (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {categories.map((category) => {
+            const getCategoryDetails = (name: string) => {
+              const lowerName = name.toLowerCase()
+              if (lowerName.includes('fruit')) return {
+                icon: 'nutrition',
+                desc: 'Premium Algerian citrus, dates, and seasonal exotic fruits harvested at peak ripeness.',
+                features: ['Deglet Nour Dates', 'Clementines & Oranges']
+              }
+              if (lowerName.includes('vege')) return {
+                icon: 'eco',
+                desc: 'Farm-fresh premium vegetables cultivated in the fertile Saharan and Coastal regions.',
+                features: ['Tomatoes & Bell Peppers', 'Onions & Potatoes']
+              }
+              if (lowerName.includes('oil')) return {
+                icon: 'water_drop',
+                desc: 'Award-winning extra virgin olive oils cold-pressed from heritage Algerian orchards.',
+                features: ['Extra Virgin Grade', 'Bulk & Retail Export']
+              }
+              return {
+                icon: 'verified',
+                desc: 'Promoting and exporting Algeria\'s leading domestic agro-industrial manufacturers.',
+                features: ['Certified Local Partners', 'Industrial Packaging']
+              }
+            }
+
+            const details = getCategoryDetails(category.name)
+
+            return (
               <Link 
-                key={category.id} 
-                href={`/products?category=${category.id}`}
-                className="flex-shrink-0 w-[320px] h-[480px] group snap-start block relative rounded-[2rem] overflow-hidden bg-[#1A1F2B]"
+                key={category.id}
+                href={`/${lang}/products?category=${category.id}`}
+                className="group relative overflow-hidden rounded-xl bg-navy-deep border border-white/5 p-8 transition-all hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10"
               >
-                {category.image ? (
-                  <Image 
-                    src={category.image} 
-                    alt={category.name} 
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-6xl">📦</div>
-                )}
-                
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D14] via-[#0A0D14]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-                
-                {/* Content at Bottom-Left */}
-                <div className="absolute bottom-10 left-8 right-8">
-                  <span className="text-[#3B82F6] text-[10px] font-bold uppercase tracking-widest block mb-3">
-                    {String(index + 1).padStart(2, '0')} / {category.name.split(' ')[0]}
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                  <span className="material-symbols-outlined text-3xl">
+                    {details.icon}
                   </span>
-                  <h3 className="text-2xl font-bold text-white leading-tight">
-                    {category.name}
-                  </h3>
                 </div>
+                <h4 className="mb-3 text-2xl font-bold text-white">{category.name}</h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  {details.desc}
+                </p>
+                <ul className="space-y-2 mb-8">
+                  {details.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="material-symbols-outlined text-primary text-sm">check_circle</span> 
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className="h-1 w-0 bg-primary transition-all group-hover:w-full"></div>
               </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Indicators */}
-        <div className="mt-12 flex flex-col items-center gap-4">
-          <div className="flex items-center gap-3">
-            {categories.map((_, index) => (
-              <div 
-                key={index}
-                className={`h-[2px] transition-all duration-300 ${index === 0 ? 'w-10 bg-[#3B82F6]' : 'w-4 bg-gray-700'}`}
-              />
-            ))}
-          </div>
-          <span className="text-[#475569] text-[10px] font-medium uppercase tracking-wider">
-            {dictionary.products.showing_of
-              .replace('{count}', Math.min(categories.length, 3).toString())
-              .replace('{total}', categories.length.toString())}
-          </span>
+            )
+          })}
         </div>
       </div>
-
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   )
 }

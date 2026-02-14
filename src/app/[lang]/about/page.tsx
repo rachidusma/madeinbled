@@ -10,109 +10,246 @@ export default async function About({
   params: { lang: Locale }
 }) {
   const dictionary = await getDictionary(lang)
+  const isRtl = lang === 'ar'
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className={`min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 ${isRtl ? 'rtl' : 'ltr'}`}>
       <Navbar dictionary={dictionary} lang={lang} />
       
       {/* Hero Section */}
-      <div className="bg-[#013765] text-white pt-32 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{dictionary.about_page.title}</h1>
-            <div className="w-24 h-1 bg-[#FE6B01]"></div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
-        {/* Presentation Section */}
-        <section className="max-w-4xl mb-20">
-            <h2 className="text-3xl font-bold text-[#013765] mb-6">
-                {dictionary.about_page.presentation.title}
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed border-l-4 border-[#FE6B01] pl-6 py-2">
-                {dictionary.about_page.presentation.content}
-            </p>
-        </section>
-      </div>
-
-      <section className="relative w-full min-h-[500px] flex items-center overflow-hidden">
+      <section className="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/about-mission-bg.png" 
-            alt="Mission Background" 
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FE6B01]/95 via-[#FE6B01]/90 to-[#FE6B01]/80"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/60 to-transparent z-10"></div>
+            <img 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIT4ZO6mKDpKWDqT7_FD4uj4YJVbGjLEwqSXPOBSehmJ_612qpxo5AiBd0TORxpO7-f9Oekdp0IPTA3sJvAFswugpHW_T-MyItSeL1p8l0-fnbGdruOPHOpCOQwCMMD7-yzZTq5g5kyY9SlXZYUNelikujyu1ObONjeFNB4vVO6NLjYAgoTSrovbXUpgfB3RJK4Ayn5gTHTB3U5BySNrUlB9xwFWb1e26DlmAsyDHlwsAlzczWJUuBf9x2f2BRVZhDfTDCJp9MrWM" 
+                alt="Algerian landscape" 
+                className="w-full h-full object-cover"
+            />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <div className="max-w-3xl">
-            <div className="mb-6 bg-white/20 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {dictionary.about_page.mission.title}
-            </h2>
-            <p className="text-xl text-white/95 leading-relaxed font-light">
-              {dictionary.about_page.mission.content}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#013765] mb-16 text-center">
-            {dictionary.about_page.values.title}
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {dictionary.about_page.values.items.map((value: string, index: number) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-md text-center hover:shadow-xl transition-all duration-300 border-t-4 border-[#013765] hover:border-[#FE6B01] transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-[#013765]/5 rounded-full flex items-center justify-center mx-auto mb-6 text-[#FE6B01] group-hover:bg-[#FE6B01]/10 transition-colors">
-                  {index === 0 && <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>}
-                  {index === 1 && <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>}
-                  {index === 2 && <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>}
-                  {index === 3 && <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>}
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider mb-6">
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    {dictionary.about_page.hero.since}
                 </div>
-                <h3 className="text-xl font-bold text-[#013765]">{value}</h3>
-              </div>
-            ))}
-          </div>
+                <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tight">
+                    {dictionary.about_page.hero.title_prefix} <span className="text-primary italic">{dictionary.about_page.hero.title_highlight}</span> {dictionary.about_page.hero.title_suffix}
+                </h1>
+                <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed font-light">
+                    {dictionary.about_page.hero.description}
+                </p>
+                <div className="flex flex-wrap gap-4">
+                    <button className="bg-primary text-white px-8 py-4 rounded-lg font-bold text-base hover:shadow-lg hover:shadow-primary/20 transition-all">
+                        {dictionary.about_page.hero.cta_primary}
+                    </button>
+                    <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-lg font-bold text-base hover:bg-white/20 transition-all">
+                        {dictionary.about_page.hero.cta_secondary}
+                    </button>
+                </div>
+            </div>
         </div>
       </section>
 
-      {/* Vision Section - Full Width with Background */}
-      <section className="relative w-full min-h-[500px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="/vision-bg.png" 
-            alt="Vision Background" 
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#013765]/95 via-[#013765]/90 to-[#013765]/75"></div>
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <div className="max-w-3xl ml-auto text-right">
-            <div className="mb-6 bg-white/20 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center ml-auto">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-              </svg>
+      {/* Mission & Vision */}
+      <section className="py-24 bg-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">{dictionary.about_page.mission.subtitle}</h2>
+                    <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-8">{dictionary.about_page.mission.title}</h3>
+                    <div className="space-y-8">
+                        <div className="flex gap-6 p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-sm dark:shadow-none hover:bg-white/10 transition-colors">
+                            <div className="bg-primary/20 p-4 rounded-lg h-fit text-primary">
+                                <span className="material-symbols-outlined text-3xl">rocket_launch</span>
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{dictionary.about_page.mission.mission_title}</h4>
+                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    {dictionary.about_page.mission.mission_content}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex gap-6 p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-sm dark:shadow-none hover:bg-white/10 transition-colors">
+                            <div className="bg-primary/20 p-4 rounded-lg h-fit text-primary">
+                                <span className="material-symbols-outlined text-3xl">visibility</span>
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{dictionary.about_page.mission.vision_title}</h4>
+                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    {dictionary.about_page.mission.vision_content}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="relative group">
+                    <div className="absolute -inset-4 bg-primary/20 blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    <img 
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmN0BnHcD_lYuYAl1YCwB_-wzr5BQ-BIHG5h6WNAktbvfg-KoUk-2leNOBgFGt6X33uAYuVzXYlEvX7pC9HmPZ8g1BnKdPHOltid0vXkXBeFENH6KI2nH3lcBZgWaIfqvwbJMlKQLby2bOcKn8LTmohqo61BDddNTqcCs4PY403AFJ4ViORgcX5XTlWV1rHHlXDHSD5c9XpWG_rnVBmme73WUsgUzUbuz6_zsxKOvcNTJIVZR_oTPPsxg3372tYzmAftYzrXvvRsw" 
+                        alt="Premium Algerian produce" 
+                        className="relative rounded-2xl w-full h-[500px] object-cover border border-white/10 shadow-2xl"
+                    />
+                    <div className={`absolute bottom-6 ${isRtl ? 'left-6 border-r-4 border-r-primary' : 'right-6 border-l-4 border-l-primary'} bg-black/40 backdrop-blur-md p-6 rounded-xl`}>
+                        <p className="text-white font-bold text-2xl">100%</p>
+                        <p className="text-slate-200 text-sm">{dictionary.about_page.mission.stat_label}</p>
+                    </div>
+                </div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {dictionary.about_page.vision.title}
-            </h2>
-            <p className="text-xl text-white/95 leading-relaxed font-light">
-              {dictionary.about_page.vision.content}
-            </p>
-          </div>
+        </div>
+      </section>
+
+      {/* Our Core Values */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+            <h2 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">{dictionary.about_page.values.subtitle}</h2>
+            <h3 className="text-4xl font-bold text-slate-900 dark:text-white">{dictionary.about_page.values.title}</h3>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+            {/* Value 1 */}
+            <div className="group p-8 rounded-2xl bg-white/5 border border-black/5 dark:border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 shadow-sm dark:shadow-none">
+                <div className="mb-6 inline-flex items-center justify-center size-16 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <span className="material-symbols-outlined text-4xl">verified</span>
+                </div>
+                <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{dictionary.about_page.values.items[0].title}</h4>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {dictionary.about_page.values.items[0].description}
+                </p>
+            </div>
+            {/* Value 2 */}
+            <div className="group p-8 rounded-2xl bg-white/5 border border-black/5 dark:border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 shadow-sm dark:shadow-none">
+                <div className="mb-6 inline-flex items-center justify-center size-16 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <span className="material-symbols-outlined text-4xl">troubleshoot</span>
+                </div>
+                <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{dictionary.about_page.values.items[1].title}</h4>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {dictionary.about_page.values.items[1].description}
+                </p>
+            </div>
+            {/* Value 3 */}
+            <div className="group p-8 rounded-2xl bg-white/5 border border-black/5 dark:border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 shadow-sm dark:shadow-none">
+                <div className="mb-6 inline-flex items-center justify-center size-16 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <span className="material-symbols-outlined text-4xl">precision_manufacturing</span>
+                </div>
+                <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{dictionary.about_page.values.items[2].title}</h4>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {dictionary.about_page.values.items[2].description}
+                </p>
+            </div>
+        </div>
+      </section>
+
+      {/* Our Journey / History */}
+      <section className="py-24 bg-white/5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row gap-16 items-center">
+                <div className="lg:w-1/2">
+                    <h2 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">{dictionary.about_page.history.subtitle}</h2>
+                    <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-6">{dictionary.about_page.history.title}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
+                        {dictionary.about_page.history.description}
+                    </p>
+                    <div className={`space-y-6 relative ${isRtl ? 'pr-[19px] border-r border-r-primary/20' : 'pl-[19px] border-l border-l-primary/20'}`}>
+                        {/* 2021 */}
+                        <div className="flex gap-6 relative items-start">
+                             <div className={`absolute ${isRtl ? '-right-[29px]' : '-left-[29px]'} top-0 size-5 rounded-full bg-primary border-4 border-background-light dark:border-background-dark z-10`}></div>
+                            <div>
+                                <h5 className="text-slate-900 dark:text-white font-bold">{dictionary.about_page.history.timeline[0].year}: {dictionary.about_page.history.timeline[0].title}</h5>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">{dictionary.about_page.history.timeline[0].description}</p>
+                            </div>
+                        </div>
+                        {/* 2024 */}
+                        <div className="flex gap-6 relative items-start">
+                            <div className={`absolute ${isRtl ? '-right-[29px]' : '-left-[29px]'} top-0 size-5 rounded-full bg-primary border-4 border-background-light dark:border-background-dark z-10`}></div>
+                            <div>
+                                <h5 className="text-slate-900 dark:text-white font-bold">{dictionary.about_page.history.timeline[1].year}: {dictionary.about_page.history.timeline[1].title}</h5>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">{dictionary.about_page.history.timeline[1].description}</p>
+                            </div>
+                        </div>
+                         {/* 2026 */}
+                         <div className="flex gap-6 relative items-start">
+                            <div className={`absolute ${isRtl ? '-right-[29px]' : '-left-[29px]'} top-0 size-5 rounded-full bg-white/20 border-4 border-background-light dark:border-background-dark z-10 animate-pulse`}></div>
+                            <div>
+                                <h5 className="text-primary font-bold">{dictionary.about_page.history.timeline[2].year}: {dictionary.about_page.history.timeline[2].title}</h5>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">{dictionary.about_page.history.timeline[2].description}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="lg:w-1/2 grid grid-cols-2 gap-4">
+                    <img 
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOg7EmAyKxj7Zf-j1wzw1OEpUxUX5nsmS7IfZ1ChtqHmumSCA5LnRWmDxocmlJXTrgbzY1zvs3ymDgLQ1B36TfapccJ103eeEhrdDzmtSjTHZ1jhDkgBDGq3KjKS5q5huzqDhltWYGdpKyUNJ7yluhuNG4H3UCgaItYxn8_T_R4R2l1NxnYWYDwM2xbxU11ktr8_joWAL7z8nCF8swwuqkUZVG_A44MUMbF-_sxHMhqCm7M07xkmPi4X4wDPoEYFc2GLGkYxF8TE4" 
+                        alt="History 1" 
+                        className="rounded-xl w-full h-64 object-cover"
+                    />
+                    <img 
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBvL6CXn1WcGXfzegT2GVtTjpVnNu6BKKF2EpFCM-SeCcRCsxIN6xVCFXY_KpSaInq5-6-9JnT1wejUo8gWGcdznW7n48QxiLm4FXEGUtEgV9EFNBvKjd29h9fJRlSZIX96lyw2SCDnAZuiyP6d5W7M04cU__MZgiHrKS4Gf_jm19wwXYa9AvpovTvcRau9yI5zfOHX1w9JHDUK0BKYG_npguVPzFk5MU0026mbmg0JClfvtUvrQe-FJEEP7gp4Wd1GC0OOetNYrs" 
+                        alt="History 2" 
+                        className="rounded-xl w-full h-64 object-cover mt-8"
+                    />
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Global Reach */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+                <h2 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">{dictionary.about_page.global_reach.subtitle}</h2>
+                <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-6">{dictionary.about_page.global_reach.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    {dictionary.about_page.global_reach.description}
+                </p>
+            </div>
+            <div className="relative bg-teal-900/5 dark:bg-white/5 rounded-3xl p-8 border border-black/5 dark:border-white/10 overflow-hidden">
+                 <div className="absolute inset-0 opacity-20 pointer-events-none">
+                    <svg className="w-full h-full text-primary" fill="none" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M150 100 L200 120 M300 150 L350 180 M500 120 L550 100" stroke="currentColor" strokeDasharray="4 4" strokeWidth="1"></path>
+                        <circle cx="150" cy="100" fill="currentColor" r="4"></circle>
+                        <circle cx="200" cy="120" fill="currentColor" r="6"></circle>
+                        <circle cx="350" cy="180" fill="currentColor" r="4"></circle>
+                        <circle cx="500" cy="120" fill="currentColor" r="5"></circle>
+                    </svg>
+                </div>
+                <div className="grid md:grid-cols-3 gap-12 relative z-10">
+                    <div className="bg-white/80 dark:bg-background-dark/60 p-8 rounded-2xl border border-black/5 dark:border-white/5 text-center backdrop-blur-sm">
+                        <span className="text-4xl font-black text-slate-900 dark:text-white block mb-2">{dictionary.about_page.global_reach.regions[0].name}</span>
+                        <p className="text-slate-600 dark:text-slate-400">{dictionary.about_page.global_reach.regions[0].description}</p>
+                        <div className="mt-4 flex justify-center gap-1">
+                            <span className="size-2 rounded-full bg-primary"></span>
+                            <span className="size-2 rounded-full bg-primary"></span>
+                            <span className="size-2 rounded-full bg-primary"></span>
+                        </div>
+                    </div>
+                    <div className="bg-white/80 dark:bg-background-dark/60 p-8 rounded-2xl border border-primary/30 text-center transform scale-105 backdrop-blur-sm shadow-xl">
+                        <span className="text-4xl font-black text-slate-900 dark:text-white block mb-2">{dictionary.about_page.global_reach.regions[1].name}</span>
+                        <p className="text-slate-600 dark:text-slate-400">{dictionary.about_page.global_reach.regions[1].description}</p>
+                        <div className="mt-4 flex justify-center gap-1">
+                            <span className="size-2 rounded-full bg-primary"></span>
+                            <span className="size-2 rounded-full bg-primary"></span>
+                            <span className="size-2 rounded-full bg-primary"></span>
+                             <span className="size-2 rounded-full bg-primary"></span>
+                        </div>
+                    </div>
+                    <div className="bg-white/80 dark:bg-background-dark/60 p-8 rounded-2xl border border-black/5 dark:border-white/5 text-center backdrop-blur-sm">
+                        <span className="text-4xl font-black text-slate-900 dark:text-white block mb-2">{dictionary.about_page.global_reach.regions[2].name}</span>
+                        <p className="text-slate-600 dark:text-slate-400">{dictionary.about_page.global_reach.regions[2].description}</p>
+                        <div className="mt-4 flex justify-center gap-1">
+                            <span className="size-2 rounded-full bg-primary"></span>
+                            <span className="size-2 rounded-full bg-primary"></span>
+                        </div>
+                    </div>
+                </div>
+                 <div className="mt-12 text-center">
+                    <div className="inline-flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300 bg-white/50 dark:bg-black/30 px-4 py-2 rounded-full border border-black/5 dark:border-white/10">
+                        <span className="material-symbols-outlined text-sm">location_on</span>
+                         {dictionary.about_page.global_reach.serving_label}
+                    </div>
+                </div>
+            </div>
         </div>
       </section>
 
