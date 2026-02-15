@@ -10,7 +10,11 @@ interface CategoryFormProps {
   initialData?: {
     id: string
     name: string
+    name_fr?: string | null
+    name_ar?: string | null
     description: string | null
+    description_fr?: string | null
+    description_ar?: string | null
     image: string | null
   } | null
 }
@@ -18,7 +22,11 @@ interface CategoryFormProps {
 export default function CategoryForm({ isOpen, onClose, onSuccess, initialData }: CategoryFormProps) {
   const [formData, setFormData] = useState({
     name: '',
+    name_fr: '',
+    name_ar: '',
     description: '',
+    description_fr: '',
+    description_ar: '',
     image: ''
   })
   const [loading, setLoading] = useState(false)
@@ -28,7 +36,11 @@ export default function CategoryForm({ isOpen, onClose, onSuccess, initialData }
     if (initialData) {
       setFormData({
         name: initialData.name,
+        name_fr: initialData.name_fr || '',
+        name_ar: initialData.name_ar || '',
         description: initialData.description || '',
+        description_fr: initialData.description_fr || '',
+        description_ar: initialData.description_ar || '',
         image: initialData.image || ''
       })
     }
@@ -69,9 +81,9 @@ export default function CategoryForm({ isOpen, onClose, onSuccess, initialData }
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-      <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
-        <div className="p-6 border-b border-gray-100 flex justify-between items-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 overflow-y-auto">
+      <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 flex flex-col max-h-[90vh]">
+        <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white z-10 sticky top-0">
           <h2 className="text-xl font-bold text-[#013765]">
             {initialData ? 'Edit Category' : 'New Category'}
           </h2>
@@ -83,7 +95,7 @@ export default function CategoryForm({ isOpen, onClose, onSuccess, initialData }
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="p-6 space-y-4 overflow-y-auto">
           {error && (
             <div className="p-3 bg-red-50 text-red-700 text-sm rounded-lg border border-red-200">
               {error}
@@ -91,7 +103,7 @@ export default function CategoryForm({ isOpen, onClose, onSuccess, initialData }
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Name (English)</label>
             <input
               type="text"
               required
@@ -102,8 +114,32 @@ export default function CategoryForm({ isOpen, onClose, onSuccess, initialData }
             />
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Name (French)</label>
+              <input
+                type="text"
+                value={formData.name_fr || ''}
+                onChange={(e) => setFormData({ ...formData, name_fr: e.target.value })}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all"
+                placeholder="e.g. Vêtements Traditionnels"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Name (Arabic)</label>
+              <input
+                type="text"
+                dir="rtl"
+                value={formData.name_ar || ''}
+                onChange={(e) => setFormData({ ...formData, name_ar: e.target.value })}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all"
+                placeholder="مثال: ملابس تقليدية"
+              />
+            </div>
+          </div>
+
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Description (English)</label>
             <textarea
               rows={3}
               value={formData.description}
@@ -111,6 +147,30 @@ export default function CategoryForm({ isOpen, onClose, onSuccess, initialData }
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all resize-none"
               placeholder="Optional description..."
             />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Description (French)</label>
+              <textarea
+                rows={3}
+                value={formData.description_fr || ''}
+                onChange={(e) => setFormData({ ...formData, description_fr: e.target.value })}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all resize-none"
+                placeholder="Description en français..."
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Description (Arabic)</label>
+              <textarea
+                rows={3}
+                dir="rtl"
+                value={formData.description_ar || ''}
+                onChange={(e) => setFormData({ ...formData, description_ar: e.target.value })}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all resize-none"
+                placeholder="وصف بالعربية..."
+              />
+            </div>
           </div>
 
           <div>
@@ -163,7 +223,7 @@ export default function CategoryForm({ isOpen, onClose, onSuccess, initialData }
             </div>
           )}
 
-          <div className="pt-4 flex justify-end gap-3">
+          <div className="pt-4 flex justify-end gap-3 sticky bottom-0 bg-white border-t border-gray-100 p-4 -mx-6 -mb-6 mt-4 z-10">
             <button
               type="button"
               onClick={onClose}

@@ -20,6 +20,7 @@ const config: Config = {
         'primary': '#f37120', // Updated to match brand orange from reference
         'background-light': '#f8f7f5',
         'background-dark': '#0a192f', // Updated to match reference exactly (#0a192f instead of #0f172a)
+        'navy-section': '#19253b', // Requested background color
         'navy-deep': '#0a192f', // Updated to match background-dark
         'navy-card': '#1e293b', // Updated to match neutral-dark
         'navy-muted': '#162a4a', // Added from Contact Page reference

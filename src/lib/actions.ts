@@ -7,17 +7,19 @@ export async function getProducts({
   page = 1,
   limit = 12,
   categoryId,
+  lang = 'en'
 }: {
   page?: number
   limit?: number
   categoryId?: string
+  lang?: string
 }) {
   const skip = (page - 1) * limit
 
   try {
     const where = categoryId ? { categoryId } : {}
 
-    const [products, total] = await Promise.all([
+    const [productsRaw, total] = await Promise.all([
       prisma.product.findMany({
         where,
         skip,
@@ -32,6 +34,16 @@ export async function getProducts({
       prisma.product.count({ where }),
     ])
 
+    const products = productsRaw.map(product => ({
+      ...product,
+      name: lang === 'fr' ? (product.name_fr || product.name) : lang === 'ar' ? (product.name_ar || product.name) : product.name,
+      description: lang === 'fr' ? (product.description_fr || product.description) : lang === 'ar' ? (product.description_ar || product.description) : product.description,
+      category: {
+        ...product.category,
+        name: lang === 'fr' ? (product.category.name_fr || product.category.name) : lang === 'ar' ? (product.category.name_ar || product.category.name) : product.category.name,
+      }
+    }))
+
     return {
       products,
       totalPages: Math.ceil(total / limit),
@@ -43,7 +55,7 @@ export async function getProducts({
   }
 }
 
-export async function getProduct(id: string) {
+export async function getProduct(id: string, lang: string = 'en') {
   try {
     const product = await prisma.product.findUnique({
       where: { id },
@@ -54,20 +66,35 @@ export async function getProduct(id: string) {
 
     if (!product) return null
 
-    return product
+    return {
+      ...product,
+      name: lang === 'fr' ? (product.name_fr || product.name) : lang === 'ar' ? (product.name_ar || product.name) : product.name,
+      description: lang === 'fr' ? (product.description_fr || product.description) : lang === 'ar' ? (product.description_ar || product.description) : product.description,
+      category: {
+        ...product.category,
+        name: lang === 'fr' ? (product.category.name_fr || product.category.name) : lang === 'ar' ? (product.category.name_ar || product.category.name) : product.category.name,
+      }
+    }
   } catch (error) {
     console.error('Error fetching product:', error)
     throw new Error('Failed to fetch product')
   }
 }
 
-export async function getCategories() {
+export async function getCategories(lang: string = 'en') {
   try {
-    const categories = await prisma.category.findMany({
+    const categoriesRaw = await prisma.category.findMany({
       orderBy: {
         name: 'asc',
       },
     })
+    
+    const categories = categoriesRaw.map(category => ({
+      ...category,
+      name: lang === 'fr' ? (category.name_fr || category.name) : lang === 'ar' ? (category.name_ar || category.name) : category.name,
+      description: lang === 'fr' ? (category.description_fr || category.description) : lang === 'ar' ? (category.description_ar || category.description) : category.description,
+    }))
+
     return categories
   } catch (error) {
     console.error('Error fetching categories:', error)

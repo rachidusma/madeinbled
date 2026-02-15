@@ -14,7 +14,7 @@ export default async function Home({
   params: { lang: Locale }
 }) {
   const dictionary = await getDictionary(lang)
-  const categories = await getCategories()
+  const categories = await getCategories(lang)
 
   return (
     <main className="min-h-screen">

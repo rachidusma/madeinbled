@@ -14,7 +14,7 @@ export default async function ProductPage({
   params: { lang: Locale; id: string }
 }) {
   const dictionary = await getDictionary(lang)
-  const product = await getProduct(id)
+  const product = await getProduct(id, lang)
   const headersList = headers()
   const host = headersList.get('host')
 

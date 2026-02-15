@@ -19,21 +19,38 @@ export default function Footer({ dictionary }: { dictionary: any }) {
               Setting the standard in Algerian agricultural exports through innovation, transparency, and logistical excellence.
             </p>
             <div className="flex gap-4">
-              <a 
-                href="https://www.facebook.com/share/1C6KsuuutN/" 
-                target="_blank" 
+              <a
+                href="https://www.facebook.com/share/1C6KsuuutN/"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 flex items-center justify-center rounded-full bg-navy-deep border border-white/10 text-white hover:bg-primary transition-all"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FE6B01] hover:scale-110 transition-all duration-300 group"
+                aria-label="Facebook"
               >
-                <span className="material-symbols-outlined">social_leaderboard</span>
+                <Facebook className="w-5 h-5 text-white" />
+              </a>
+              <a
+                href="https://www.instagram.com/made_in_bled_trading?igsh=eHlhZzdxd3UzYjhj"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FE6B01] hover:scale-110 transition-all duration-300 group"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5 text-white" />
               </a>
               <a 
-                href="https://www.instagram.com/made_in_bled_trading?igsh=eHlhZzdxd3UzYjhj" 
+                href="https://www.tiktok.com/@made.in.bled.trad?_r=1&_t=ZS-93oGrAUyDr7" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="h-10 w-10 flex items-center justify-center rounded-full bg-navy-deep border border-white/10 text-white hover:bg-primary transition-all"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FE6B01] hover:scale-110 transition-all duration-300 group"
+                aria-label="TikTok"
               >
-                <span className="material-symbols-outlined">language</span>
+                <svg 
+                  viewBox="0 0 24 24" 
+                  className="w-5 h-5 text-white fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
+                </svg>
               </a>
             </div>
           </div>

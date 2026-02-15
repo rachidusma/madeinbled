@@ -23,14 +23,14 @@ export async function POST(request: Request) {
   try {
     await requireAuth()
     const body = await request.json()
-    const { name, description, image } = body
+    const { name, name_fr, name_ar, description, description_fr, description_ar, image } = body
 
     if (!name) {
       return NextResponse.json({ error: 'Name is required' }, { status: 400 })
     }
 
     const category = await prisma.category.create({
-      data: { name, description, image }
+      data: { name, name_fr, name_ar, description, description_fr, description_ar, image }
     })
 
     revalidatePath('/[lang]', 'page')
@@ -49,7 +49,7 @@ export async function PUT(request: Request) {
   try {
     await requireAuth()
     const body = await request.json()
-    const { id, name, description, image } = body
+    const { id, name, name_fr, name_ar, description, description_fr, description_ar, image } = body
 
     if (!id || !name) {
       return NextResponse.json({ error: 'ID and Name are required' }, { status: 400 })
@@ -57,7 +57,7 @@ export async function PUT(request: Request) {
 
     const category = await prisma.category.update({
       where: { id },
-      data: { name, description, image }
+      data: { name, name_fr, name_ar, description, description_fr, description_ar, image }
     })
 
     revalidatePath('/[lang]', 'page')

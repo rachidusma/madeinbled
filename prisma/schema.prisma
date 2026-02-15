@@ -17,7 +17,11 @@ model Admin {
 model Category {
   id          String    @id @default(cuid())
   name        String
+  name_fr     String?
+  name_ar     String?
   description String?
+  description_fr String?
+  description_ar String?
   image       String?
   products    Product[]
   createdAt   DateTime  @default(now())
@@ -27,7 +31,11 @@ model Category {
 model Product {
   id          String   @id @default(cuid())
   name        String
+  name_fr     String?
+  name_ar     String?
   description String?
+  description_fr String?
+  description_ar String?
   image       String?
   category    Category @relation(fields: [categoryId], references: [id])
   categoryId  String

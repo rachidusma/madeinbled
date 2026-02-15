@@ -22,8 +22,8 @@ export default async function Products({
 
   // Fetch data in parallel
   const [productsData, categories] = await Promise.all([
-    getProducts({ page, categoryId }),
-    getCategories(),
+    getProducts({ page, categoryId, lang }),
+    getCategories(lang),
   ])
 
   // Insert banner logic: try to insert after 3rd item if we have enough items

@@ -29,14 +29,14 @@ export default function Products({ dictionary, categories, lang }: ProductsProps
   }
 
   return (
-    <section className="bg-background-dark py-24 px-6 lg:px-20" id="products">
+    <section className="bg-navy-section py-24 px-6 lg:px-20" id="products">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="mb-12 flex flex-col gap-6">
           <div>
             <h2 className="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-3">Our Expertise</h2>
             <h3 className="text-4xl md:text-5xl font-black text-white">{dictionary.products.title}</h3>
           </div>
-          <p className="max-w-md text-slate-400">
+          <p className="max-w-2xl text-slate-400 text-lg">
             {dictionary.products.description}
           </p>
         </div>
@@ -75,24 +75,36 @@ export default function Products({ dictionary, categories, lang }: ProductsProps
                 href={`/${lang}/products?category=${category.id}`}
                 className="group relative overflow-hidden rounded-xl bg-navy-deep border border-white/5 p-8 transition-all hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10"
               >
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                  <span className="material-symbols-outlined text-3xl">
-                    {details.icon}
-                  </span>
+                {/* Background Image */}
+                {category.image && (
+                  <Image
+                    src={category.image}
+                    alt={category.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                )}
+                
+                {/* Gradient Overlay - Light blue */}
+                <div className={`absolute inset-0 bg-gradient-to-br from-sky-400/90 to-blue-900/90 mix-blend-multiply z-10 transition-opacity duration-300 ${category.image ? 'opacity-90' : 'opacity-0'}`} />
+                
+                {/* Content */}
+                <div className="relative z-20 flex flex-col h-full">
+                  {/* Icon removed as requested */}
+                  <h4 className="mb-3 text-2xl font-bold text-white drop-shadow-md mt-4">{category.name}</h4>
+                  <p className="text-slate-100 text-sm leading-relaxed mb-6 drop-shadow-sm font-medium">
+                    {details.desc}
+                  </p>
+                  <ul className="space-y-2 mb-8 mt-auto">
+                    {details.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-xs text-white font-medium drop-shadow-sm">
+                        <span className="material-symbols-outlined text-primary text-sm shadow-sm bg-white/20 rounded-full p-0.5">check_circle</span> 
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="h-1 w-0 bg-primary transition-all group-hover:w-full"></div>
                 </div>
-                <h4 className="mb-3 text-2xl font-bold text-white">{category.name}</h4>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                  {details.desc}
-                </p>
-                <ul className="space-y-2 mb-8">
-                  {details.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-xs text-slate-300">
-                      <span className="material-symbols-outlined text-primary text-sm">check_circle</span> 
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <div className="h-1 w-0 bg-primary transition-all group-hover:w-full"></div>
               </Link>
             )
           })}
