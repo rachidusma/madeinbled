@@ -19,7 +19,7 @@ export default async function Home({
   return (
     <main className="min-h-screen">
       <Navbar dictionary={dictionary} lang={lang} />
-      <Hero dictionary={dictionary} />
+      <Hero dictionary={dictionary} lang={lang} />
       <Products dictionary={dictionary} categories={categories} lang={lang} />
 
       <Process dictionary={dictionary} />

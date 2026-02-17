@@ -7,9 +7,10 @@ import { Product, Category } from '@prisma/client'
 interface ProductCardProps {
   product: Product & { category: Category }
   dictionary: any
+  lang: string
 }
 
-export default function ProductCard({ product, dictionary }: ProductCardProps) {
+export default function ProductCard({ product, dictionary, lang }: ProductCardProps) {
   // Helper to determine badge color based on category (optional visual flair)
   const isFruit = product.category.name.toLowerCase().includes('fruit')
   const isVeg = product.category.name.toLowerCase().includes('veg')
@@ -55,7 +56,7 @@ export default function ProductCard({ product, dictionary }: ProductCardProps) {
             <span className="text-xs font-semibold text-white">Bled, Algeria</span>
           </div>
           <Link 
-            href={`/products/${product.id}`}
+            href={`/${lang}/products/${product.id}`}
             className="rounded-lg bg-primary/10 p-2 text-primary hover:bg-primary hover:text-white transition-all"
           >
             <span className="material-symbols-outlined text-[20px]">arrow_forward</span>

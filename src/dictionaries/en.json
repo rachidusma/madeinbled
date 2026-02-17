@@ -8,8 +8,14 @@
   },
   "hero": {
     "title": "Bringing the Best of Algeria to the World",
+    "title_part1": "CONNECTING",
+    "title_part2": "ALGERIA",
+    "title_part3": "TO THE WORLD",
     "subtitle": "Connecting global markets with the finest sustainable produce from the heart of Algeria's fertile lands.",
-    "cta": "Contact Us"
+    "badge": "Now Exporting 2026 Edition",
+    "cta": "Contact Us",
+    "cta_products": "Explore Our Catalog",
+    "cta_sales": "Contact Sales"
   },
     "about_page": {
         "title": "About Us",
@@ -199,6 +205,9 @@
     "no_products_desc": "Try adjusting your filters or come back later.",
     "contact_cta": "Contact Us About This Product",
     "back_to_products": "Back to Products",
+    "back_to_categories": "Back to Categories",
+    "select_category": "Discover Our Collections",
+    "select_category_desc": "Explore our carefully selected premium product categories.",
     "origin": "Origin",
     "certifications": {
       "title": "Certifications",

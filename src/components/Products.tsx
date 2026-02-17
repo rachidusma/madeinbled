@@ -43,32 +43,6 @@ export default function Products({ dictionary, categories, lang }: ProductsProps
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => {
-            const getCategoryDetails = (name: string) => {
-              const lowerName = name.toLowerCase()
-              if (lowerName.includes('fruit')) return {
-                icon: 'nutrition',
-                desc: 'Premium Algerian citrus, dates, and seasonal exotic fruits harvested at peak ripeness.',
-                features: ['Deglet Nour Dates', 'Clementines & Oranges']
-              }
-              if (lowerName.includes('vege')) return {
-                icon: 'eco',
-                desc: 'Farm-fresh premium vegetables cultivated in the fertile Saharan and Coastal regions.',
-                features: ['Tomatoes & Bell Peppers', 'Onions & Potatoes']
-              }
-              if (lowerName.includes('oil')) return {
-                icon: 'water_drop',
-                desc: 'Award-winning extra virgin olive oils cold-pressed from heritage Algerian orchards.',
-                features: ['Extra Virgin Grade', 'Bulk & Retail Export']
-              }
-              return {
-                icon: 'verified',
-                desc: 'Promoting and exporting Algeria\'s leading domestic agro-industrial manufacturers.',
-                features: ['Certified Local Partners', 'Industrial Packaging']
-              }
-            }
-
-            const details = getCategoryDetails(category.name)
-
             return (
               <Link 
                 key={category.id}
@@ -93,17 +67,10 @@ export default function Products({ dictionary, categories, lang }: ProductsProps
                   {/* Icon removed as requested */}
                   <h4 className="mb-3 text-2xl font-bold text-white drop-shadow-md mt-4">{category.name}</h4>
                   <p className="text-slate-100 text-sm leading-relaxed mb-6 drop-shadow-sm font-medium">
-                    {details.desc}
+                    {category.description}
                   </p>
-                  <ul className="space-y-2 mb-8 mt-auto">
-                    {details.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-xs text-white font-medium drop-shadow-sm">
-                        <span className="material-symbols-outlined text-primary text-sm shadow-sm bg-white/20 rounded-full p-0.5">check_circle</span> 
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="h-1 w-0 bg-primary transition-all group-hover:w-full"></div>
+                  
+                  <div className="h-1 w-0 bg-primary transition-all group-hover:w-full mt-auto"></div>
                 </div>
               </Link>
             )

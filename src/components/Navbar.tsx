@@ -2,17 +2,21 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 
 export default function Navbar({ dictionary, lang }: { dictionary: any, lang: string }) {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   const redirectedPathname = (locale: string) => {
     if (!pathname) return '/'
     const segments = pathname.split('/')
     segments[1] = locale
-    return segments.join('/')
+    const url = segments.join('/')
+    
+    const params = searchParams.toString()
+    return params ? `${url}?${params}` : url
   }
 
 

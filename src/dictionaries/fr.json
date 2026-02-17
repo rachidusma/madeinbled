@@ -8,8 +8,14 @@
   },
   "hero": {
     "title": "Apporter le meilleur de l'Algérie au monde",
+    "title_part1": "CONNECTER",
+    "title_part2": "L'ALGÉRIE",
+    "title_part3": "AU MONDE",
     "subtitle": "Connecter les marchés mondiaux avec les meilleurs produits durables issus des terres fertiles d'Algérie.",
-    "cta": "Contactez-nous"
+    "badge": "Exportation Édition 2026",
+    "cta": "Contactez-nous",
+    "cta_products": "Explorer Notre Catalogue",
+    "cta_sales": "Contacter les Ventes"
   },
     "about_page": {
         "title": "À Propos",
@@ -199,6 +205,9 @@
     "no_products_desc": "Essayez d'ajuster vos filtres ou revenez plus tard.",
     "contact_cta": "Contactez-nous à propos de ce produit",
     "back_to_products": "Retour aux produits",
+    "back_to_categories": "Retour aux catégories",
+    "select_category": "Découvrez Nos Collections",
+    "select_category_desc": "Explorez nos catégories de produits premium soigneusement sélectionnées.",
     "origin": "Origine",
     "certifications": {
       "title": "Certifications",

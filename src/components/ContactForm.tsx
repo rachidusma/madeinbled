@@ -329,7 +329,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                   src={[
                     "https://lh3.googleusercontent.com/aida-public/AB6AXuDass3YnFGZMbuEJcrXhZBhYwWTEzOsFD4X6icQ5XAh8ecujrwktR9QdgArxpU3apxV6akxF6z12kqHFCKacTfEhMR3L4GdJrU_snjD2iHh9lMkYZU_OzXdXeeXKG1dARnDLu0fX0R7QLllnQjuWKS9xc_aHh6-7RaaN5RmczIi7KrntOJ6d4Al-_0bS3ZD7_-2gFwt8nUHSKjirQFdhK9q7FvdlTpYylAVyJjZ2dMXlA_SWj34h6qwU3ep-ZBfFBeZLo20kYUXh6Y",
-                    "https://lh3.googleusercontent.com/aida-public/AB6AXuBtnkjpqUa3e10UghDWMz1fXsEDJeQ5jS829XGQ2-woMDR5rizeTubS0S5pKEPB5gaa7pBWE4uLL3tebMHpQxk7e3ImcAPFtwR3R7HPnWUSGDAZEH0fb4VL3PgnkBVZUp5JpX3EAuK5dd665AzPL1aMGwJj2sMgl-uP51CXdD4q6pDXwfI7V0E3bGpqBE6dqpxWfp8-eowexnfuM_d1Ab-g1hgTaVXdutfuwUu0wyER2_yA8Q5KXRjK1hZZyuZ1XekC9F_rhdyCUIc",
+                    "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
                     "https://lh3.googleusercontent.com/aida-public/AB6AXuAqQOQTW5oyLNKp4652-klrBfDSNHyqj2dOc05b8HgJYDbGFavHyhU6FWjojI7YqELwfg7XM242_wjHkQJGrQnSE3Itgwr5v5vNJq7sh5rAsEfr306xlWKM8xwMZYA9CjAr4U7a7UYn2TXYbVOOZVOg4TqSdohCIxekH237vYCFxpjbcOtQR7hsQ5Go2ZPjqB5kEM_JOF3SjtNWUwFv2H2u8ImJP2eplI4olOnKTP7E19blmWDagChhqeICRaT0pJwOv1FtQjPiy-c"
                   ][index]}
                   alt={office.city} 
@@ -341,9 +341,6 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
                 </div>
                 <h4 className="text-2xl font-bold mb-2 text-white">{office.city}</h4>
                 <p className="text-slate-400 text-sm leading-relaxed mb-6">{office.desc}</p>
-                <div className="flex items-center gap-2 text-primary font-bold text-sm cursor-pointer hover:gap-3 transition-all">
-                   View Location <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                </div>
               </div>
             </div>
           ))}
