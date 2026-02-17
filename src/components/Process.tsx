@@ -13,15 +13,14 @@ export default function Process({ dictionary }: { dictionary: any }) {
             </div>
             <div className="absolute -bottom-8 -right-8 bg-primary p-10 rounded-xl hidden md:block">
               <div className="text-5xl font-black text-white">2026</div>
-              <div className="text-sm font-bold text-white/80 uppercase tracking-widest mt-1">Edition Release</div>
+              <div className="text-sm font-bold text-white/80 uppercase tracking-widest mt-1">{dictionary.process_component.edition_release}</div>
             </div>
           </div>
           <div>
-            <h2 className="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-4">The Benchmark of Trust</h2>
-            <h3 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">Algeria - Distribution & Export Experts</h3>
+            <h2 className="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-4">{dictionary.process_component.benchmark_trust}</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">{dictionary.process_component.title}</h3>
             <p className="text-slate-300 text-lg leading-relaxed mb-8">
-              At Made in Bled Trading, we are more than just exporters; we are the strategic link between the fertile landscapes of Algeria and the demanding global markets. 
-              Our 2026 Edition marks a milestone in industrial scalability and logistical efficiency.
+              {dictionary.process_component.description}
             </p>
             <div className="space-y-6">
               <div className="flex gap-4">
@@ -29,8 +28,8 @@ export default function Process({ dictionary }: { dictionary: any }) {
                   <span className="material-symbols-outlined text-primary text-3xl">public</span>
                 </div>
                 <div>
-                  <h5 className="text-xl font-bold text-white mb-2">Global Reach</h5>
-                  <p className="text-slate-400 text-sm">Strategically located to serve Europe, Africa, and the Middle East with rapid turnaround times.</p>
+                  <h5 className="text-xl font-bold text-white mb-2">{dictionary.process_component.global_reach_title}</h5>
+                  <p className="text-slate-400 text-sm">{dictionary.process_component.global_reach_desc}</p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -38,8 +37,8 @@ export default function Process({ dictionary }: { dictionary: any }) {
                   <span className="material-symbols-outlined text-primary text-3xl">verified_user</span>
                 </div>
                 <div>
-                  <h5 className="text-xl font-bold text-white mb-2">Quality Assurance</h5>
-                  <p className="text-slate-400 text-sm">Every shipment undergoes rigorous international standard inspections before departure.</p>
+                  <h5 className="text-xl font-bold text-white mb-2">{dictionary.process_component.quality_assurance_title}</h5>
+                  <p className="text-slate-400 text-sm">{dictionary.process_component.quality_assurance_desc}</p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -47,8 +46,8 @@ export default function Process({ dictionary }: { dictionary: any }) {
                   <span className="material-symbols-outlined text-primary text-3xl">inventory_2</span>
                 </div>
                 <div>
-                  <h5 className="text-xl font-bold text-white mb-2">Modern Logistics</h5>
-                  <p className="text-slate-400 text-sm">Advanced temperature-controlled storage and real-time tracking for all agricultural assets.</p>
+                  <h5 className="text-xl font-bold text-white mb-2">{dictionary.process_component.modern_logistics_title}</h5>
+                  <p className="text-slate-400 text-sm">{dictionary.process_component.modern_logistics_desc}</p>
                 </div>
               </div>
             </div>

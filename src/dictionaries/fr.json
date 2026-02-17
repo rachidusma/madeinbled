@@ -209,6 +209,27 @@
     }
   },
   "footer": {
-    "follow_us": "Suivez-nous"
+    "follow_us": "Suivez-nous",
+    "brand_desc": "Établir la norme dans les exportations agricoles algériennes par l'innovation, la transparence et l'excellence logistique.",
+    "quick_links": "Liens Rapides",
+    "global_contact_center": "Centre de Contact Mondial",
+    "locations": {
+        "main_hub": "Hub Principal d'Exportation, Zone Industrielle, Alger, Algérie"
+    },
+    "copyright": "© {year} Made in Bled Trading. Tous droits réservés. Édition 2026 Prête.",
+    "privacy_policy": "Politique de Confidentialité",
+    "export_terms": "Conditions d'Exportation"
+  },
+  "process_component": {
+      "edition_release": "Sortie de l'Édition",
+      "benchmark_trust": "La Référence de Confiance",
+      "title": "Algérie - Experts en Distribution & Exportation",
+      "description": "Chez Made in Bled Trading, nous sommes plus que de simples exportateurs ; nous sommes le lien stratégique entre les paysages fertiles d'Algérie et les marchés mondiaux exigeants. Notre Édition 2026 marque une étape importante dans l'évolutivité industrielle et l'efficacité logistique.",
+      "global_reach_title": "Portée Mondiale",
+      "global_reach_desc": "Stratégiquement situé pour servir l'Europe, l'Afrique et le Moyen-Orient avec des délais d'exécution rapides.",
+      "quality_assurance_title": "Assurance Qualité",
+      "quality_assurance_desc": "Chaque expédition subit des inspections rigoureuses selon les normes internationales avant le départ.",
+      "modern_logistics_title": "Logistique Moderne",
+      "modern_logistics_desc": "Stockage avancé à température contrôlée et suivi en temps réel pour tous les actifs agricoles."
   }
 }

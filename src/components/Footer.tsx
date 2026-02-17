@@ -16,7 +16,7 @@ export default function Footer({ dictionary }: { dictionary: any }) {
               <span className="text-xl font-black uppercase tracking-tighter text-white">Made in Bled <span className="text-primary">Trading</span></span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Setting the standard in Algerian agricultural exports through innovation, transparency, and logistical excellence.
+              {dictionary.footer.brand_desc}
             </p>
             <div className="flex gap-4">
               <a
@@ -57,7 +57,7 @@ export default function Footer({ dictionary }: { dictionary: any }) {
           
           {/* Links Column */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-6">Quick Links</h4>
+            <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-6">{dictionary.footer.quick_links}</h4>
             <ul className="space-y-4">
               <li><Link href="/" className="text-slate-400 hover:text-primary transition-colors text-sm">{dictionary.navigation.home}</Link></li>
               <li><Link href="/about" className="text-slate-400 hover:text-primary transition-colors text-sm">{dictionary.navigation.about}</Link></li>
@@ -68,7 +68,7 @@ export default function Footer({ dictionary }: { dictionary: any }) {
           
           {/* Contact Column */}
           <div className="col-span-1 lg:col-span-2">
-            <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-6">Global Contact Center</h4>
+            <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-6">{dictionary.footer.global_contact_center}</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-400">
@@ -86,7 +86,7 @@ export default function Footer({ dictionary }: { dictionary: any }) {
               </div>
               <div className="flex gap-3 text-slate-400">
                 <span className="material-symbols-outlined text-primary flex-shrink-0">location_on</span>
-                <span className="text-sm">Main Export Hub, Industrial Zone, Algiers, Algeria</span>
+                <span className="text-sm">{dictionary.footer.locations.main_hub}</span>
               </div>
             </div>
             <div className="mt-8 overflow-hidden rounded-lg grayscale border border-white/10 h-32 w-full">
@@ -100,10 +100,10 @@ export default function Footer({ dictionary }: { dictionary: any }) {
         </div>
         
         <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-xs">© {new Date().getFullYear()} Made in Bled Trading. All Rights Reserved. 2026 Edition Ready.</p>
+          <p className="text-slate-500 text-xs">{dictionary.footer.copyright.replace('{year}', new Date().getFullYear().toString())}</p>
           <div className="flex gap-6">
-            <Link href="#" className="text-slate-500 hover:text-white text-xs">Privacy Policy</Link>
-            <Link href="#" className="text-slate-500 hover:text-white text-xs">Export Terms</Link>
+            <Link href="#" className="text-slate-500 hover:text-white text-xs">{dictionary.footer.privacy_policy}</Link>
+            <Link href="#" className="text-slate-500 hover:text-white text-xs">{dictionary.footer.export_terms}</Link>
           </div>
         </div>
       </div>

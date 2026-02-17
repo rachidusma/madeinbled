@@ -22,6 +22,8 @@ export default function AdminSidebar() {
     { href: '/admin/dashboard', label: 'Dashboard', icon: '📊' },
     { href: '/admin/categories', label: 'Categories', icon: '📁' },
     { href: '/admin/products', label: 'Products', icon: '📦' },
+    { href: '/admin/users', label: 'Users', icon: '👥' },
+    { href: '/admin/profile', label: 'Profile', icon: '👤' },
   ]
 
   return (
