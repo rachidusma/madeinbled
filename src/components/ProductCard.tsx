@@ -38,7 +38,6 @@ export default function ProductCard({ product, dictionary, lang }: ProductCardPr
               {dictionary.product_page?.status?.out_of_stock || 'Out of stock'}
             </span>
           )}
-          <span className="rounded bg-background-dark/80 px-2 py-1 text-[10px] font-bold text-white backdrop-blur">Algeria</span>
         </div>
       </div>
 
