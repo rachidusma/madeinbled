@@ -25,12 +25,14 @@ export default function Navbar({ dictionary, lang }: { dictionary: any, lang: st
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <div className="flex-shrink-0">
           <Link href={`/${lang}`} className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-white">
-              <span className="material-symbols-outlined text-2xl">local_shipping</span>
-            </div>
-            <span className="text-xl font-black uppercase tracking-tighter text-white">
-              Made in Bled <span className="text-primary">Trading</span>
-            </span>
+            <Image
+              src="/logo.png"
+              alt="Made in Bled Trading Logo"
+              width={160}
+              height={50}
+              priority
+              className="object-contain"
+            />
           </Link>
         </div>
         

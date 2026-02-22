@@ -9,11 +9,14 @@ export default function Footer({ dictionary }: { dictionary: any }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="col-span-1 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-white">
-                <span className="material-symbols-outlined text-2xl">local_shipping</span>
-              </div>
-              <span className="text-xl font-black uppercase tracking-tighter text-white">Made in Bled <span className="text-primary">Trading</span></span>
+            <div className="mb-6 inline-block bg-white/90 p-2 rounded-xl">
+              <Image
+                src="/logo.png"
+                alt="Made in Bled Trading Logo"
+                width={200}
+                height={60}
+                className="object-contain"
+              />
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
               {dictionary.footer.brand_desc}
