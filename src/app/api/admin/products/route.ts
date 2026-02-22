@@ -30,14 +30,14 @@ export async function POST(request: Request) {
   try {
     await requireAuth()
     const body = await request.json()
-    const { name, name_fr, name_ar, description, description_fr, description_ar, image, categoryId } = body
+    const { name, name_fr, name_ar, description, description_fr, description_ar, image, categoryId, isAvailable } = body
 
     if (!name || !categoryId) {
       return NextResponse.json({ error: 'Name and Category are required' }, { status: 400 })
     }
 
     const product = await prisma.product.create({
-      data: { name, name_fr, name_ar, description, description_fr, description_ar, image, categoryId }
+      data: { name, name_fr, name_ar, description, description_fr, description_ar, image, categoryId, isAvailable }
     })
 
     revalidatePath('/[lang]', 'page')
@@ -56,7 +56,7 @@ export async function PUT(request: Request) {
   try {
     await requireAuth()
     const body = await request.json()
-    const { id, name, name_fr, name_ar, description, description_fr, description_ar, image, categoryId } = body
+    const { id, name, name_fr, name_ar, description, description_fr, description_ar, image, categoryId, isAvailable } = body
 
     if (!id || !name || !categoryId) {
       return NextResponse.json({ error: 'ID, Name, and Category are required' }, { status: 400 })
@@ -64,7 +64,7 @@ export async function PUT(request: Request) {
 
     const product = await prisma.product.update({
       where: { id },
-      data: { name, name_fr, name_ar, description, description_fr, description_ar, image, categoryId }
+      data: { name, name_fr, name_ar, description, description_fr, description_ar, image, categoryId, isAvailable }
     })
 
     revalidatePath('/[lang]', 'page')

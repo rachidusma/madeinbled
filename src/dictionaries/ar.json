@@ -209,6 +209,10 @@
     "select_category": "اكتشف تشكيلاتنا",
     "select_category_desc": "استكشف فئات منتجاتنا المتميزة المختارة بعناية.",
     "origin": "المنشأ",
+    "status": {
+      "available": "متوفر",
+      "out_of_stock": "نفذت الكمية"
+    },
     "certifications": {
       "title": "الشهادات",
       "organic": "عضوي",

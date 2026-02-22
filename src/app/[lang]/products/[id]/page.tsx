@@ -57,6 +57,15 @@ export default async function ProductPage({
                     <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
                       {product.category.name}
                     </span>
+                    {product.isAvailable ? (
+                      <span className="bg-green-500/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg backdrop-blur-sm">
+                        {dictionary.product_page.status?.available || 'Available'}
+                      </span>
+                    ) : (
+                      <span className="bg-red-500/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg backdrop-blur-sm">
+                        {dictionary.product_page.status?.out_of_stock || 'Out of stock'}
+                      </span>
+                    )}
                  </div>
             </div>
           </div>

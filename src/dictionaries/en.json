@@ -209,6 +209,10 @@
     "select_category": "Discover Our Collections",
     "select_category_desc": "Explore our carefully selected premium product categories.",
     "origin": "Origin",
+    "status": {
+      "available": "Available",
+      "out_of_stock": "Out of stock"
+    },
     "certifications": {
       "title": "Certifications",
       "organic": "Organic",

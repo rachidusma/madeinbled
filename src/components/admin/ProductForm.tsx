@@ -22,6 +22,7 @@ interface ProductFormProps {
     description_ar?: string | null
     image: string | null
     categoryId: string
+    isAvailable: boolean
   } | null
   categories: Category[]
 }
@@ -35,7 +36,8 @@ export default function ProductForm({ isOpen, onClose, onSuccess, initialData, c
     description_fr: '',
     description_ar: '',
     image: '',
-    categoryId: ''
+    categoryId: '',
+    isAvailable: true
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -50,7 +52,8 @@ export default function ProductForm({ isOpen, onClose, onSuccess, initialData, c
         description_fr: initialData.description_fr || '',
         description_ar: initialData.description_ar || '',
         image: initialData.image || '',
-        categoryId: initialData.categoryId
+        categoryId: initialData.categoryId,
+        isAvailable: initialData.isAvailable ?? true
       })
     } else if (categories.length > 0) {
       setFormData(prev => ({ ...prev, categoryId: categories[0].id }))
@@ -149,18 +152,33 @@ export default function ProductForm({ isOpen, onClose, onSuccess, initialData, c
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-            <select
-              required
-              value={formData.categoryId}
-              onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })}
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all bg-white"
-            >
-              {categories.map(cat => (
-                <option key={cat.id} value={cat.id}>{cat.name}</option>
-              ))}
-            </select>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+              <select
+                required
+                value={formData.categoryId}
+                onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all bg-white"
+              >
+                {categories.map(cat => (
+                  <option key={cat.id} value={cat.id}>{cat.name}</option>
+                ))}
+              </select>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+              <select
+                required
+                value={formData.isAvailable ? 'available' : 'out_of_stock'}
+                onChange={(e) => setFormData({ ...formData, isAvailable: e.target.value === 'available' })}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#FE6B01] focus:border-transparent outline-none transition-all bg-white"
+              >
+                <option value="available">Available</option>
+                <option value="out_of_stock">Out of stock</option>
+              </select>
+            </div>
           </div>
 
           <div>

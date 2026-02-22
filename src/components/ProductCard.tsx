@@ -5,15 +5,12 @@ import Link from 'next/link'
 import { Product, Category } from '@prisma/client'
 
 interface ProductCardProps {
-  product: Product & { category: Category }
+  product: Product & { category: Category; isAvailable?: boolean }
   dictionary: any
   lang: string
 }
 
 export default function ProductCard({ product, dictionary, lang }: ProductCardProps) {
-  // Helper to determine badge color based on category (optional visual flair)
-  const isFruit = product.category.name.toLowerCase().includes('fruit')
-  const isVeg = product.category.name.toLowerCase().includes('veg')
   
   return (
     <div className="group flex flex-col overflow-hidden rounded-xl border border-border-dark bg-neutral-dark/40 transition-all hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10">
@@ -31,10 +28,16 @@ export default function ProductCard({ product, dictionary, lang }: ProductCardPr
           </div>
         )}
         <div className="absolute top-3 left-3 flex gap-2">
-          {/* Mock badges for visual consistency with reference */}
-          <span className={`rounded px-2 py-1 text-[10px] font-black uppercase text-white ${isFruit ? 'bg-primary' : isVeg ? 'bg-green-600' : 'bg-primary'}`}>
-            {isFruit ? 'Fresh' : isVeg ? 'Organic' : 'Premium'}
-          </span>
+          {/* Availability Badge */}
+          {product.isAvailable ? (
+            <span className="rounded px-2 py-1 text-[10px] font-black uppercase text-white bg-green-500/90 shadow-lg backdrop-blur-sm">
+              {dictionary.product_page?.status?.available || 'Available'}
+            </span>
+          ) : (
+            <span className="rounded px-2 py-1 text-[10px] font-black uppercase text-white bg-red-500/90 shadow-lg backdrop-blur-sm">
+              {dictionary.product_page?.status?.out_of_stock || 'Out of stock'}
+            </span>
+          )}
           <span className="rounded bg-background-dark/80 px-2 py-1 text-[10px] font-bold text-white backdrop-blur">Algeria</span>
         </div>
       </div>

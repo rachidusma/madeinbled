@@ -10,6 +10,7 @@ interface Product {
   description: string | null
   image: string | null
   categoryId: string
+  isAvailable: boolean
   category: {
     id: string
     name: string
@@ -135,6 +136,7 @@ export default function ProductsPage() {
                   <th className="px-6 py-4 font-semibold text-gray-700">Image</th>
                   <th className="px-6 py-4 font-semibold text-gray-700">Name</th>
                   <th className="px-6 py-4 font-semibold text-gray-700">Category</th>
+                  <th className="px-6 py-4 font-semibold text-gray-700">Status</th>
                   <th className="px-6 py-4 font-semibold text-gray-700">Description</th>
                   <th className="px-6 py-4 font-semibold text-gray-700 text-right">Actions</th>
                 </tr>
@@ -163,6 +165,13 @@ export default function ProductsPage() {
                       <span className="bg-blue-50 text-[#013765] px-2 py-1 rounded text-xs font-medium">
                         {product.category?.name}
                       </span>
+                    </td>
+                    <td className="px-6 py-4">
+                      {product.isAvailable ? (
+                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Available</span>
+                      ) : (
+                        <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-medium">Out of stock</span>
+                      )}
                     </td>
                     <td className="px-6 py-4 text-gray-500 text-sm max-w-xs truncate">
                       {product.description}

@@ -209,6 +209,10 @@
     "select_category": "Découvrez Nos Collections",
     "select_category_desc": "Explorez nos catégories de produits premium soigneusement sélectionnées.",
     "origin": "Origine",
+    "status": {
+      "available": "Disponible",
+      "out_of_stock": "Rupture de stock"
+    },
     "certifications": {
       "title": "Certifications",
       "organic": "Biologique",
