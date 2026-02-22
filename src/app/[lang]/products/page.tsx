@@ -71,7 +71,6 @@ export default async function Products({
 
             {/* Product Content Area */}
             <div className="flex-1">
-              {/* Sorting & Layout Toggle (Visual Only for now) */}
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-border-dark">
                 <p className="text-slate-400 text-sm">
                   {currentCategory ? (
@@ -79,13 +78,6 @@ export default async function Products({
                   ) : null}
                   Showing <span className="text-white font-bold">{productsData.products.length}</span> Premium Items
                 </p>
-                <div className="flex items-center gap-4 hidden md:flex">
-                   <select className="bg-neutral-dark border-border-dark text-white rounded-lg text-sm focus:ring-primary pr-10 py-2">
-                    <option>Sort by: Popularity</option>
-                    <option>Sort by: Newest Arrival</option>
-                    <option>Sort by: Harvest Season</option>
-                  </select>
-                </div>
               </div>
 
               {products.length > 0 ? (
