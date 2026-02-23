@@ -90,7 +90,7 @@ export default async function Products({
                         
                         {/* Inject Banner after the 3rd item (index 2) */}
                         {index === 2 && showBanner && (
-                          <ProductBanner />
+                          <ProductBanner dictionary={dictionary} />
                         )}
                       </React.Fragment>
                     ))}

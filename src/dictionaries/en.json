@@ -221,6 +221,17 @@
       "fda": "FDA Approved"
     }
   },
+  "product_banner": {
+    "subtitle": "Premium Logistics",
+    "title": "Export Standards & Packaging",
+    "description": "Our logistics network ensures every product maintains its farm-fresh quality from Algeria to your destination. We utilize temperature-controlled reefer containers and palletized shipping solutions that meet GlobalGAP standards.",
+    "features": {
+      "certified": "GlobalGAP Certified",
+      "cold_chain": "Cold Chain Logistics",
+      "retail_pack": "Retail-Ready Pack",
+      "global_access": "Global Port Access"
+    }
+  },
   "footer": {
     "follow_us": "Follow Us",
     "brand_desc": "Setting the standard in Algerian agricultural exports through innovation, transparency, and logistical excellence.",

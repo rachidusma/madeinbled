@@ -221,6 +221,17 @@
       "fda": "Approuvé FDA"
     }
   },
+  "product_banner": {
+    "subtitle": "Logistique Premium",
+    "title": "Normes d'Exportation et Emballage",
+    "description": "Notre réseau logistique garantit que chaque produit conserve sa qualité fraîche de la ferme depuis l'Algérie jusqu'à votre destination. Nous utilisons des conteneurs frigorifiques à température contrôlée et des solutions d'expédition palettisées qui répondent aux normes GlobalGAP.",
+    "features": {
+      "certified": "Certifié GlobalGAP",
+      "cold_chain": "Logistique de Chaîne du Froid",
+      "retail_pack": "Emballage Prêt pour la Vente au Détail",
+      "global_access": "Accès aux Ports Mondiaux"
+    }
+  },
   "footer": {
     "follow_us": "Suivez-nous",
     "brand_desc": "Établir la norme dans les exportations agricoles algériennes par l'innovation, la transparence et l'excellence logistique.",

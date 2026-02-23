@@ -2,32 +2,38 @@
 
 import React from 'react'
 
-export default function ProductBanner() {
+export default function ProductBanner({ dictionary }: { dictionary: any }) {
+  const banner = dictionary?.product_banner;
+  
+  // Guard against missing dictionary or product_banner object, fallback to default text if needed
+  if (!banner) {
+    return null;
+  }
+
   return (
     <div className="col-span-1 md:col-span-2 xl:col-span-3 bg-gradient-to-r from-neutral-dark to-slate-900 border border-primary/30 rounded-xl p-8 flex flex-col md:flex-row items-center gap-8 my-4">
       <div className="flex-1">
-        <span className="text-primary font-bold text-sm tracking-widest uppercase mb-2 block">Premium Logistics</span>
-        <h2 className="text-2xl font-black text-white mb-4">Export Standards &amp; Packaging</h2>
+        <span className="text-primary font-bold text-sm tracking-widest uppercase mb-2 block">{banner.subtitle}</span>
+        <h2 className="text-2xl font-black text-white mb-4">{banner.title}</h2>
         <p className="text-slate-400 text-sm leading-relaxed mb-6">
-          Our logistics network ensures every product maintains its farm-fresh quality from Algeria to your destination. 
-          We utilize temperature-controlled reefer containers and palletized shipping solutions that meet GlobalGAP standards.
+          {banner.description}
         </p>
         <div className="grid grid-cols-2 gap-4">
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-primary">verified</span>
-            <span className="text-xs font-bold text-white">GlobalGAP Certified</span>
+            <span className="text-xs font-bold text-white">{banner.features.certified}</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-primary">thermostat</span>
-            <span className="text-xs font-bold text-white">Cold Chain Logistics</span>
+            <span className="text-xs font-bold text-white">{banner.features.cold_chain}</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-primary">inventory_2</span>
-            <span className="text-xs font-bold text-white">Retail-Ready Pack</span>
+            <span className="text-xs font-bold text-white">{banner.features.retail_pack}</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-primary">public</span>
-            <span className="text-xs font-bold text-white">Global Port Access</span>
+            <span className="text-xs font-bold text-white">{banner.features.global_access}</span>
           </div>
         </div>
       </div>
