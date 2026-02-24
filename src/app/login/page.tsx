@@ -105,7 +105,7 @@ export default function AdminLogin() {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#FE6B01] focus:ring-2 focus:ring-[#FE6B01] focus:ring-opacity-20 transition-all duration-300 outline-none text-gray-900"
-              placeholder="admin@madeinbled.com"
+              placeholder="Enter your email"
             />
           </div>
 
@@ -140,9 +140,6 @@ export default function AdminLogin() {
         </form>
 
         {/* Info Text */}
-        <p className="mt-6 text-center text-sm text-gray-500">
-          Default credentials: admin@madeinbled.com / admin123
-        </p>
       </div>
 
       {/* Custom Styles */}
