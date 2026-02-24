@@ -76,7 +76,7 @@ export default function Footer({ dictionary }: { dictionary: any }) {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-400">
                   <span className="material-symbols-outlined text-primary">phone_iphone</span>
-                  <span className="text-sm">+213 559 100 042</span>
+                  <span className="text-sm">+213559100042</span>
                 </div>
                 <div className="flex items-center gap-3 text-slate-400">
                   <span className="material-symbols-outlined text-primary">mail</span>
