@@ -271,7 +271,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
                       </div>
                       <div>
                         <p className="text-sm text-slate-400 font-medium uppercase tracking-wider mb-1">{dictionary.contact.info.website}</p>
-                        <p className="text-xl font-bold text-white">www.madeinbled.com</p>
+                        <p className="text-xl font-bold text-white">https://www.madeinbledtr.com/</p>
                       </div>
                     </div>
                   </div>

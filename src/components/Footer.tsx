@@ -84,7 +84,7 @@ export default function Footer({ dictionary }: { dictionary: any }) {
                 </div>
                 <div className="flex items-center gap-3 text-slate-400">
                   <span className="material-symbols-outlined text-primary">public</span>
-                  <span className="text-sm">www.Madeinbledtrading.com</span>
+                  <span className="text-sm">https://www.madeinbledtr.com/</span>
                 </div>
               </div>
               <div className="flex gap-3 text-slate-400">
