@@ -9,11 +9,11 @@ export default function Footer({ dictionary }: { dictionary: any }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="col-span-1 lg:col-span-1">
-            <div className="mb-6 inline-block bg-white/90 p-2 rounded-xl">
+            <div className="mb-6 inline-block">
               <Image
                 src="/logo.png"
                 alt="Made in Bled Trading Logo"
-                width={200}
+                width={250}
                 height={60}
                 className="object-contain"
               />

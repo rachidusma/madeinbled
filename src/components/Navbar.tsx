@@ -28,7 +28,7 @@ export default function Navbar({ dictionary, lang }: { dictionary: any, lang: st
             <Image
               src="/logo.png"
               alt="Made in Bled Trading Logo"
-              width={160}
+              width={210}
               height={50}
               priority
               className="object-contain"

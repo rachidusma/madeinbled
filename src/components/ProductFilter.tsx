@@ -61,10 +61,14 @@ export default function ProductFilter({ categories, dictionary }: ProductFilterP
       </div>
 
       <div className="pt-6 border-t border-border-dark">
-        <button className="w-full flex items-center justify-center gap-2 rounded-lg bg-neutral-dark border border-border-dark py-3 text-sm font-bold text-white hover:bg-slate-700 transition-colors">
+        <a 
+          href="/Catalogue Produits Made In Bled NV SMALL.pdf" 
+          download
+          className="w-full flex items-center justify-center gap-2 rounded-lg bg-neutral-dark border border-border-dark py-3 text-sm font-bold text-white hover:bg-slate-700 transition-colors"
+        >
           <span className="material-symbols-outlined text-[20px]">download</span>
           Full Catalog PDF
-        </button>
+        </a>
       </div>
     </aside>
   )

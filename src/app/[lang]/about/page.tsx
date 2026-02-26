@@ -141,61 +141,10 @@ export default async function About({
         </div>
       </section>
 
-      {/* Our Journey / History */}
-      <section className="py-24 bg-white/5 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row gap-16 items-center">
-                <div className="lg:w-1/2">
-                    <h2 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">{dictionary.about_page.history.subtitle}</h2>
-                    <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-6">{dictionary.about_page.history.title}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
-                        {dictionary.about_page.history.description}
-                    </p>
-                    <div className={`space-y-6 relative ${isRtl ? 'pr-[19px] border-r border-r-primary/20' : 'pl-[19px] border-l border-l-primary/20'}`}>
-                        {/* 2021 */}
-                        <div className="flex gap-6 relative items-start">
-                             <div className={`absolute ${isRtl ? '-right-[29px]' : '-left-[29px]'} top-0 size-5 rounded-full bg-primary border-4 border-background-light dark:border-background-dark z-10`}></div>
-                            <div>
-                                <h5 className="text-slate-900 dark:text-white font-bold">{dictionary.about_page.history.timeline[0].year}: {dictionary.about_page.history.timeline[0].title}</h5>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">{dictionary.about_page.history.timeline[0].description}</p>
-                            </div>
-                        </div>
-                        {/* 2024 */}
-                        <div className="flex gap-6 relative items-start">
-                            <div className={`absolute ${isRtl ? '-right-[29px]' : '-left-[29px]'} top-0 size-5 rounded-full bg-primary border-4 border-background-light dark:border-background-dark z-10`}></div>
-                            <div>
-                                <h5 className="text-slate-900 dark:text-white font-bold">{dictionary.about_page.history.timeline[1].year}: {dictionary.about_page.history.timeline[1].title}</h5>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">{dictionary.about_page.history.timeline[1].description}</p>
-                            </div>
-                        </div>
-                         {/* 2026 */}
-                         <div className="flex gap-6 relative items-start">
-                            <div className={`absolute ${isRtl ? '-right-[29px]' : '-left-[29px]'} top-0 size-5 rounded-full bg-white/20 border-4 border-background-light dark:border-background-dark z-10 animate-pulse`}></div>
-                            <div>
-                                <h5 className="text-primary font-bold">{dictionary.about_page.history.timeline[2].year}: {dictionary.about_page.history.timeline[2].title}</h5>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">{dictionary.about_page.history.timeline[2].description}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="lg:w-1/2 grid grid-cols-2 gap-4">
-                    <img 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOg7EmAyKxj7Zf-j1wzw1OEpUxUX5nsmS7IfZ1ChtqHmumSCA5LnRWmDxocmlJXTrgbzY1zvs3ymDgLQ1B36TfapccJ103eeEhrdDzmtSjTHZ1jhDkgBDGq3KjKS5q5huzqDhltWYGdpKyUNJ7yluhuNG4H3UCgaItYxn8_T_R4R2l1NxnYWYDwM2xbxU11ktr8_joWAL7z8nCF8swwuqkUZVG_A44MUMbF-_sxHMhqCm7M07xkmPi4X4wDPoEYFc2GLGkYxF8TE4" 
-                        alt="History 1" 
-                        className="rounded-xl w-full h-64 object-cover"
-                    />
-                    <img 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBvL6CXn1WcGXfzegT2GVtTjpVnNu6BKKF2EpFCM-SeCcRCsxIN6xVCFXY_KpSaInq5-6-9JnT1wejUo8gWGcdznW7n48QxiLm4FXEGUtEgV9EFNBvKjd29h9fJRlSZIX96lyw2SCDnAZuiyP6d5W7M04cU__MZgiHrKS4Gf_jm19wwXYa9AvpovTvcRau9yI5zfOHX1w9JHDUK0BKYG_npguVPzFk5MU0026mbmg0JClfvtUvrQe-FJEEP7gp4Wd1GC0OOetNYrs" 
-                        alt="History 2" 
-                        className="rounded-xl w-full h-64 object-cover mt-8"
-                    />
-                </div>
-            </div>
-        </div>
-      </section>
+
 
       {/* Global Reach */}
-      <section className="py-24">
+      <section className="py-24 bg-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
                 <h2 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">{dictionary.about_page.global_reach.subtitle}</h2>
