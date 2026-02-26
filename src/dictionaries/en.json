@@ -254,6 +254,16 @@
       "quality_assurance_title": "Quality Assurance",
       "quality_assurance_desc": "Every shipment undergoes rigorous international standard inspections before departure.",
       "modern_logistics_title": "Modern Logistics",
-      "modern_logistics_desc": "Advanced temperature-controlled storage and real-time tracking for all agricultural assets."
+      "modern_logistics_desc": "Advanced temperature-controlled storage and real-time tracking for all agricultural assets.",
+      "export_title": "Our Export Process",
+      "export_desc": "At MADE IN BLED TRADING, we have established a clear and structured process to ensure a smooth and secure export.",
+      "export_steps": [
+        "Contact and study of your request",
+        "Technical and commercial analysis",
+        "Quoting",
+        "Product preparation",
+        "Customs formalities management",
+        "Shipping to your destination"
+      ]
   }
 }

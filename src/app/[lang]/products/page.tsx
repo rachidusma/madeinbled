@@ -83,16 +83,8 @@ export default async function Products({
               {products.length > 0 ? (
                 <>
                   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {products.map((product, index) => (
-                      <React.Fragment key={product.id}>
-                        {/* Render standard product card */}
-                        <ProductCard product={product} dictionary={dictionary} lang={lang} />
-                        
-                        {/* Inject Banner after the 3rd item (index 2) */}
-                        {index === 2 && showBanner && (
-                          <ProductBanner dictionary={dictionary} />
-                        )}
-                      </React.Fragment>
+                    {products.map((product) => (
+                      <ProductCard key={product.id} product={product} dictionary={dictionary} lang={lang} />
                     ))}
                   </div>
                   
@@ -100,6 +92,12 @@ export default async function Products({
                     totalPages={productsData.totalPages} 
                     currentPage={productsData.currentPage} 
                   />
+
+                  {showBanner && (
+                    <div className="mt-16">
+                      <ProductBanner dictionary={dictionary} />
+                    </div>
+                  )}
                 </>
               ) : (
                 <div className="text-center py-20">

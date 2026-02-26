@@ -1,5 +1,6 @@
 export default function Process({ dictionary }: { dictionary: any }) {
   return (
+    <>
     <section className="bg-navy-deep py-24 px-6 lg:px-20" id="about">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -55,5 +56,35 @@ export default function Process({ dictionary }: { dictionary: any }) {
         </div>
       </div>
     </section>
+    
+    {/* Export Process Section */}
+    <section className="bg-white/5 py-24 px-6 lg:px-20 border-t border-white/5">
+      <div className="mx-auto max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+            {dictionary.process_component.export_title}
+          </h2>
+          <p className="text-slate-400 text-lg max-w-3xl mx-auto">
+            {dictionary.process_component.export_desc}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {dictionary.process_component.export_steps?.map((step: string, index: number) => (
+            <div key={index} className="bg-neutral-dark border border-border-dark p-8 rounded-2xl relative overflow-hidden group hover:border-primary/50 transition-colors">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:bg-primary/20 transition-colors" />
+              <div className="text-5xl font-black text-white/5 mb-6 group-hover:text-primary/20 transition-colors">
+                {(index + 1).toString().padStart(2, '0')}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">
+                {step}
+              </h3>
+              <div className="w-12 h-1 bg-primary/30 rounded-full group-hover:w-full group-hover:bg-primary transition-all duration-300" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    </>
   )
 }
