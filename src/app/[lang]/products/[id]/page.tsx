@@ -45,7 +45,7 @@ export default async function ProductPage({
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-contain"
                   priority
                 />
               ) : (
